@@ -2,8 +2,8 @@
   <div class="sale">
     <section class="sale__items">
       <div class="sale__search-bar">
-        <SearchBox/>
-        <ViewType :type="type" @change="typeChange"/>
+        <SearchBox />
+        <ViewType :type="type" @change="typeChange" />
       </div>
 
       <div class="sale__content">
@@ -13,7 +13,7 @@
           class="sale__product-list"
           @loadMore="loadMore"
         />
-        <Loading :loading="loading"/>
+        <Loading :loading="loading" />
       </div>
     </section>
     <section></section>
@@ -81,7 +81,6 @@ export default {
       }
 
       this.products = [...this.products, ...fetchedProducts];
-      // console.log(this.products);
       this.loading = false;
     }
   }

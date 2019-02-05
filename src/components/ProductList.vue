@@ -66,7 +66,7 @@ export default {
       this.busy = false;
     },
     type() {
-      // We have to wait until a the doms are completely rendered on screen;
+      // We have to wait until the doms are completely rendered on screen;
       // Otherwise, InfiniteScroll can't check the height.
       Vue.nextTick(() => {
         this.$emit('checkRemainingProduct');
