@@ -1,6 +1,5 @@
 <template>
   <div class="product-item">
-    <!-- <img class="product-item__cover" height="60" width="40" alt="product-item" :src="cover"> -->
     <span class="product-item__title">{{ title }}</span>
     <span class="product-item__price">{{ formattedPrice }}</span>
   </div>
