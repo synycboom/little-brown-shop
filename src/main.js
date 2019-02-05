@@ -11,7 +11,11 @@ import {
   faDollarSign,
   faFileInvoiceDollar,
   faQuestionCircle,
-  faTimes
+  faTimes,
+  faBarcode,
+  faTh,
+  faList,
+  faCircleNotch
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
@@ -21,7 +25,11 @@ library.add(
   faDollarSign,
   faFileInvoiceDollar,
   faQuestionCircle,
-  faTimes
+  faTimes,
+  faBarcode,
+  faTh,
+  faList,
+  faCircleNotch
 );
 
 Vue.component('FontAwesomeIcon', FontAwesomeIcon);
