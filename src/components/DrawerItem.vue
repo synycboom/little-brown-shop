@@ -1,7 +1,7 @@
 <template>
-  <RouterLink tag="li" :to="linkTo">
-    <FontAwesomeIcon :icon="icon" size="lg" />
-    <a>{{ title }}</a>
+  <RouterLink tag="li" :to="linkTo" class="drawer-item">
+    <FontAwesomeIcon :icon="icon" size="lg" class="drawer-item__icon" />
+    <a class="drawer-item__link">{{ title }}</a>
   </RouterLink>
 </template>
 
@@ -28,7 +28,7 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/scss/vars.scss';
 
-li {
+.drawer-item {
   list-style-type: none;
   padding: 25px;
   border-bottom: 1px solid #575757;
@@ -37,11 +37,11 @@ li {
     background-color: #252525;
   }
 
-  svg {
+  .drawer-item__icon {
     margin-right: 10px;
   }
 
-  a {
+  .drawer-item__link {
     font-weight: bold;
     text-decoration: none;
     color: white;

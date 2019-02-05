@@ -1,9 +1,9 @@
 <template>
-  <nav>
-    <span class="brand">Little Brown Shop</span>
-    <div class="shopping-cart">
+  <nav class="header">
+    <span class="header__brand">Little Brown Shop</span>
+    <div class="header__shopping-cart">
       <FontAwesomeIcon icon="shopping-cart" size="lg"/>
-      <span class="total-items">8</span>
+      <span class="header__total-items">8</span>
     </div>
   </nav>
 </template>
@@ -17,7 +17,7 @@ export default {
 <style lang="scss" scoped>
 @import '../assets/scss/vars.scss';
 
-nav {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,14 +29,16 @@ nav {
   height: $headerHeight;
   background-color: white;
 
-  .brand {
+  .header__brand {
     margin-left: 10px;
   }
-  .shopping-cart {
+
+  .header__shopping-cart {
     margin-left: auto;
-  }
-  .shopping-cart .total-items {
-    margin-left: 5px;
+
+    .header__total-items {
+      margin-left: 5px;
+    }
   }
 }
 </style>

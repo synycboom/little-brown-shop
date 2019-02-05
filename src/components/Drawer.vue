@@ -1,6 +1,6 @@
 <template>
   <div class="drawer" :class="drawerClasses">
-    <ul>
+    <ul class="drawer__item-container">
       <slot></slot>
     </ul>
   </div>
@@ -45,7 +45,7 @@ export default {
     left: 0px;
   }
 
-  ul {
+  .drawer__item-container {
     margin: 0px;
     padding: 0px;
   }

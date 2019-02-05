@@ -1,6 +1,6 @@
 <template>
   <div class="sale">
-    <section class="sale__items">
+    <section class="sale__product-select">
       <div class="sale__search-bar">
         <SearchBox />
         <ViewType :type="type" @change="typeChange" />
@@ -100,7 +100,7 @@ $productListUnusableHeight: (
   display: flex;
   padding: $containerPadding;
 
-  .sale__items {
+  .sale__product-select {
     position: relative;
     flex-basis: 100%;
 

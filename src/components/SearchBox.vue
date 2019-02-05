@@ -1,7 +1,7 @@
 <template>
   <div class="searchbox">
-    <input type="text" />
-    <FontAwesomeIcon icon="barcode" size="3x" />
+    <input type="text" class="searchbox__input" />
+    <FontAwesomeIcon icon="barcode" size="3x" class="searchbox__icon" />
   </div>
 </template>
 
@@ -19,7 +19,7 @@ export default {};
   max-width: 380px;
   height: 2.5rem;
 
-  input {
+  .searchbox__input {
     width: 100%;
     padding-left: 10px;
     padding-right: 10px;
@@ -30,7 +30,7 @@ export default {};
     border-radius: 0px;
   }
 
-  svg {
+  .searchbox__icon {
     border-left: 0px;
     border-top: 1px solid $primaryColor;
     border-right: 1px solid $primaryColor;
