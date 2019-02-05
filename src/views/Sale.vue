@@ -2,17 +2,18 @@
   <div class="sale">
     <section class="sale__items">
       <div class="sale__search-bar">
-        <SearchBox />
-        <ViewType />
+        <SearchBox/>
+        <ViewType :type="type" @change="typeChange"/>
       </div>
 
       <div class="sale__content">
         <ProductList
           :items="products"
+          :type="type"
           class="sale__product-list"
           @loadMore="loadMore"
         />
-        <Loading :loading="loading" />
+        <Loading :loading="loading"/>
       </div>
     </section>
     <section></section>
@@ -32,11 +33,14 @@ export default {
   name: 'Sale',
   data() {
     return {
-      hasRemainingProducts: true,
       loading: false,
+      /* For using in ProductList component */
+      hasRemainingProducts: true,
       page: 1,
       pageSize: 10,
-      products: []
+      products: [],
+      /* For using in ViewType component */
+      type: 'grid'
     };
   },
   components: {
@@ -46,6 +50,9 @@ export default {
     Loading
   },
   methods: {
+    typeChange(type) {
+      this.type = type;
+    },
     async loadMore() {
       let fetchedProducts = [];
 
@@ -62,10 +69,11 @@ export default {
           this.pageSize
         );
       } catch (response) {
+        // TODO: Show error messages
         console.log(response);
       }
 
-      // Increase page number only if there are still remaining products on the next page
+      // Increase a page number only if there are still remaining products on the next page
       if (fetchedProducts.length > 0) {
         this.page += 1;
       } else {
@@ -107,6 +115,7 @@ $productListUnusableHeight: (
 
     .sale__content {
       position: relative;
+      height: 100%;
 
       .sale__product-list {
         margin-top: $productListMarginTop;

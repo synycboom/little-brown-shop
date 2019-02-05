@@ -47,7 +47,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .product-item {
   width: 48%;
   margin: 1%;

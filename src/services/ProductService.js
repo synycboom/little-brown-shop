@@ -11,7 +11,7 @@ class ProductService extends BaseService {
     // Note: we don't need to fetch data every time this function is called, but this is for simulation.
 
     if (page < 1 || pageSize < 1) {
-      console.error('Please check the parameters');
+      throw new Error('Please check the parameters');
     }
 
     try {

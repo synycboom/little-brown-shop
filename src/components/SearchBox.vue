@@ -1,7 +1,7 @@
 <template>
   <div class="searchbox">
-    <input type="text">
-    <FontAwesomeIcon icon="barcode" size="3x"/>
+    <input type="text" />
+    <FontAwesomeIcon icon="barcode" size="3x" />
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 export default {};
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../assets/scss/vars.scss';
 
 .searchbox {

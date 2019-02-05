@@ -4,30 +4,47 @@
     v-infinite-scroll="loadMore"
     infinite-scroll-disabled="busy"
     infinite-scroll-distance="10"
-    :infinite-scroll-immediate-check="false"
+    infinite-scroll-listen-for-event="checkRemainingProduct"
   >
-    <ProductItem
-      v-for="item in items"
-      :key="item.id"
-      :id="item.id"
-      :cover="item.cover"
-      :price="item.price"
-      :title="item.title"
-    />
+    <template v-if="type === 'grid'">
+      <ProductItemGrid
+        v-for="item in items"
+        :key="item.id"
+        :id="item.id"
+        :cover="item.cover"
+        :price="item.price"
+        :title="item.title"
+      />
+    </template>
+    <template v-else>
+      <ProductItemList
+        v-for="item in items"
+        :key="item.id"
+        :id="item.id"
+        :cover="item.cover"
+        :price="item.price"
+        :title="item.title"
+      />
+    </template>
   </div>
 </template>
 
 <script>
-import ProductItem from './ProductItem';
+import Vue from 'vue';
+import ProductItemList from './ProductItemList';
+import ProductItemGrid from './ProductItemGrid';
 import InfiniteScroll from 'vue-infinite-scroll';
-
-// Use https://github.com/ElemeFE/vue-infinite-scroll to make an ininite scroll
-// Since in this test the backend has no pagination feature, we will do client side pagination instead
 
 export default {
   name: 'ProductList',
   directives: { InfiniteScroll },
   props: {
+    type: {
+      type: String,
+      default() {
+        return 'grid';
+      }
+    },
     items: {
       type: Array,
       default() {
@@ -36,7 +53,8 @@ export default {
     }
   },
   components: {
-    ProductItem
+    ProductItemGrid,
+    ProductItemList
   },
   data() {
     return {
@@ -46,6 +64,13 @@ export default {
   watch: {
     items() {
       this.busy = false;
+    },
+    type() {
+      // We have to wait until a the doms are completely rendered on screen;
+      // Otherwise, InfiniteScroll can't check the height.
+      Vue.nextTick(() => {
+        this.$emit('checkRemainingProduct');
+      });
     }
   },
   methods: {
@@ -57,11 +82,13 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .product-list {
-  overflow: auto;
+  overflow: scroll;
   position: relative;
   display: flex;
   flex-wrap: wrap;
+  /* To make a smooth scrolling */
+  -webkit-overflow-scrolling: touch;
 }
 </style>
