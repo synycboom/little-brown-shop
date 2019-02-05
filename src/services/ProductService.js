@@ -21,7 +21,7 @@ class ProductService extends BaseService {
 
       return books.splice(start, pageSize);
     } catch (error) {
-      Promise.reject(error.response);
+      return Promise.reject(error.response);
     }
   }
 }
