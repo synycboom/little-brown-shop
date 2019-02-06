@@ -2,11 +2,7 @@
   <div class="billing">
     <Header>
       <template slot="left">
-        <TextButton
-          label="Back"
-          icon="chevron-left"
-          @click="$emit('showProductSection')"
-        />
+        <TextButton label="Back" icon="chevron-left" @click="$emit('showProductSection')"/>
       </template>
       <template slot="center">
         <h2 class="billing__title">Cart ({{ '5' }})</h2>
@@ -14,7 +10,7 @@
     </Header>
 
     <div class="billing__content">
-      <BillingList :items="billingItems" />
+      <BillingList :items="billingItems"/>
     </div>
 
     <div class="billing__footer">
@@ -33,12 +29,8 @@
         </div>
       </div>
       <div class="billing__buttons">
-        <Button label="Clear" class="billing__clear-button" />
-        <Button
-          label="Pay"
-          class="billing__pay-button"
-          @click="handlePayClick"
-        />
+        <Button label="Clear" class="billing__clear-button"/>
+        <Button label="Pay" class="billing__pay-button" @click="handlePayClick"/>
       </div>
     </div>
   </div>
@@ -46,7 +38,6 @@
 
 <script>
 import { formatThaiBath } from '../utils.js';
-import router from '../router.js';
 import TextButton from '../components/TextButton';
 import Button from '../components/Button';
 import BillingList from '../components/BillingList';
@@ -93,7 +84,7 @@ export default {
   },
   methods: {
     handlePayClick() {
-      router.push({ name: 'cash-payment' });
+      this.$router.push({ name: 'cash-payment' });
     }
   }
 };

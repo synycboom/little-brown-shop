@@ -2,13 +2,18 @@
   <div class="sale">
     <section class="sale__product-section" :class="productSelectClasses">
       <div class="sale__search-bar">
-        <SearchBox/>
-        <ViewType :type="type" @change="handleTypeChange"/>
+        <SearchBox />
+        <ViewType :type="type" @change="handleTypeChange" />
       </div>
 
-      <ProductList :items="products" :type="type" class="sale__product-list" @loadMore="loadMore"/>
+      <ProductList
+        :items="products"
+        :type="type"
+        class="sale__product-list"
+        @loadMore="loadMore"
+      />
 
-      <Loading :loading="loading"/>
+      <Loading :loading="loading" />
     </section>
 
     <section class="sale__billing-section" :class="billingClasses">
@@ -20,13 +25,12 @@
         :total="total"
         :billingItems="billingItems"
       />
-      <router-view name="cash-payment" :total="total"/>
+      <router-view name="cash-payment" :total="total" />
     </section>
   </div>
 </template>
 
 <script>
-import router from '../router.js';
 import ProductService from '../services/ProductService.js';
 import Loading from '../components/Loading';
 import SearchBox from '../components/SearchBox';
@@ -191,7 +195,7 @@ export default {
 
       // For small screen devices, the billing section should be hidden.
       this.showProductSection();
-      router.replace({ name: 'sale-billing' });
+      this.$router.replace({ name: 'sale-billing' });
     },
     isInCart(id) {
       const product = this.selectedProductIdList.find(

@@ -37,7 +37,6 @@
 
 <script>
 import { formatThaiBath } from '../utils.js';
-import router from '../router.js';
 import TextButton from '../components/TextButton';
 import PayTextBox from '../components/PayTextBox';
 import Button from '../components/Button';
@@ -75,7 +74,7 @@ export default {
   },
   methods: {
     navigateToBilling() {
-      router.go(-1);
+      this.$router.go(-1);
     },
     finishPayment() {
       if (this.pay >= this.total) {
