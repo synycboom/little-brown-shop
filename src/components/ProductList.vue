@@ -6,7 +6,7 @@
     infinite-scroll-distance="10"
     infinite-scroll-listen-for-event="checkRemainingProduct"
   >
-    <template v-if="type === 'grid'">
+    <template v-if="type === 'GRID'">
       <ProductItemGrid
         v-for="item in items"
         :key="item.id"
@@ -42,7 +42,7 @@ export default {
     type: {
       type: String,
       default() {
-        return 'grid';
+        return 'GRID';
       }
     },
     items: {

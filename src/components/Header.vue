@@ -1,11 +1,15 @@
 <template>
-  <nav class="header">
-    <span class="header__brand">Little Brown Shop</span>
-    <div class="header__shopping-cart">
-      <FontAwesomeIcon icon="shopping-cart" size="lg"/>
-      <span class="header__total-items">8</span>
+  <div class="header">
+    <div class="header__left">
+      <slot name="left"></slot>
     </div>
-  </nav>
+    <div class="header__center">
+      <slot name="center"></slot>
+    </div>
+    <div class="header__right">
+      <slot name="right"></slot>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -18,27 +22,26 @@ export default {
 @import '../assets/scss/vars.scss';
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 10px 10px 40px;
-  border: 1px solid $primaryColor;
-  position: fixed;
-  top: 0px;
-  width: 100%;
   height: $headerHeight;
-  background-color: white;
+  display: flex;
+  align-items: center;
 
-  .header__brand {
-    margin-left: 10px;
+  .header__left {
+    display: flex;
+    justify-content: flex-start;
+    width: 30%;
   }
 
-  .header__shopping-cart {
-    margin-left: auto;
+  .header__center {
+    display: flex;
+    justify-content: center;
+    width: 40%;
+  }
 
-    .header__total-items {
-      margin-left: 5px;
-    }
+  .header__right {
+    display: flex;
+    justify-content: flex-end;
+    width: 30%;
   }
 }
 </style>

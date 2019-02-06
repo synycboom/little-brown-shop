@@ -5,6 +5,7 @@ import router from './router';
 import store from './store';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import {
   faBars,
   faShoppingCart,
@@ -15,9 +16,12 @@ import {
   faBarcode,
   faTh,
   faList,
-  faCircleNotch
+  faCircleNotch,
+  faChevronLeft,
+  faPlusSquare,
+  faMinusSquare,
+  faTrash
 } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 library.add(
   faBars,
@@ -29,8 +33,23 @@ library.add(
   faBarcode,
   faTh,
   faList,
-  faCircleNotch
+  faCircleNotch,
+  faChevronLeft,
+  faPlusSquare,
+  faMinusSquare,
+  faTrash
 );
+
+// Define EventBus in Vue prototype
+const eventBus = new Vue();
+
+Object.defineProperties(Vue.prototype, {
+  $eventBus: {
+    get: function() {
+      return eventBus;
+    }
+  }
+});
 
 Vue.component('FontAwesomeIcon', FontAwesomeIcon);
 

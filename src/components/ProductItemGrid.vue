@@ -1,5 +1,5 @@
 <template>
-  <div class="product-item">
+  <div class="product-item" @click="$eventBus.$emit('addToCart', id)">
     <div class="product-item__content">
       <img
         class="product-item__cover"
@@ -9,7 +9,7 @@
         :src="cover"
       />
       <div class="product-item__details">
-        <p class="product-item__title">{{ title }}</p>
+        <p class="product-item__title two-lines-ellipsis">{{ title }}</p>
         <p class="product-item__price">{{ formattedPrice }}</p>
       </div>
     </div>
@@ -71,62 +71,12 @@ export default {
       height: 100px;
       padding: 0px 5px;
 
-      // styles below is suggested by https://codepen.io/natonischuk/pen/KpNKQZ
-      // to workaround text overflow ellipsis on 2 lines
       .product-item__title {
-        max-width: 100%;
-        /* hide text if it more than N lines  */
-        overflow: hidden;
-        /* for set '...' in absolute position */
-        position: relative;
-        /* use this value to count block height */
-        line-height: 1.2em;
-        /* max-height = line-height (1.2) * lines max number (2) */
-        max-height: 2.4em;
-        /* fix problem when last visible word doesn't adjoin right side  */
-        text-align: justify;
-
-        /* */
-        margin-right: -1em;
-        padding-right: 1em;
-      }
-      .product-item__title:before {
-        /* points in the end */
-        content: '...';
-        /* absolute position */
-        position: absolute;
-        /* set position to right bottom corner of block */
-        right: 0;
-        bottom: 0;
-      }
-      .product-item__title:after {
-        /* points in the end */
-        content: '';
-        /* absolute position */
-        position: absolute;
-        /* set position to right bottom corner of text */
-        right: 0;
-        width: 1em;
-        /* set width and height */
-        height: 1em;
-        margin-top: 0.2em;
-        background: white;
       }
 
       .product-item__price {
       }
     }
-
-    // .product-item__cover {
-    //   display: inline-block;
-    //   width: 30%;
-    //   max-width: 160px;
-    //   max-height: 240px;
-    // }
-    // .product-item__details {
-    //   display: inline-block;
-    //   width: 70%;
-    // }
   }
 }
 </style>

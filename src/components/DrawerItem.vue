@@ -14,7 +14,7 @@ export default {
       required: true
     },
     linkTo: {
-      type: String,
+      type: Object,
       required: true
     },
     icon: {

@@ -7,30 +7,31 @@
       :icon="toggleIcon"
       @click="toggleDrawer"
     />
-    <Header :isDrawerOpen="isDrawerOpen" @toggleDrawer="toggleDrawer" />
+    <NavBar :isDrawerOpen="isDrawerOpen" @toggleDrawer="toggleDrawer"/>
     <Drawer :isDrawerOpen="isDrawerOpen">
-      <DrawerItem title="Sale" linkTo="/sale" icon="dollar-sign" />
+      <DrawerItem title="Sale" :linkTo="{ name: 'sale-billing' }" icon="dollar-sign" replace/>
       <DrawerItem
         title="Receipts"
-        linkTo="/receipts"
+        :linkTo="{ name: 'receipts' }"
         icon="file-invoice-dollar"
+        replace
       />
     </Drawer>
     <main>
-      <router-view class="main" />
+      <router-view class="main"/>
     </main>
   </div>
 </template>
 
 <script>
-import Header from './components/Header';
+import NavBar from './components/NavBar';
 import Drawer from './components/Drawer';
 import DrawerItem from './components/DrawerItem';
 
 export default {
   name: 'app',
   components: {
-    Header,
+    NavBar,
     Drawer,
     DrawerItem
   },
@@ -58,6 +59,7 @@ export default {
 </script>
 <style lang="scss">
 @import './assets/scss/vars.scss';
+@import './assets/scss/global.scss';
 
 * {
   box-sizing: border-box;
@@ -91,6 +93,9 @@ body {
 }
 
 main {
-  margin-top: $headerHeight;
+  margin-top: $navbarHeight;
+  padding: 10px;
+  /* Subtract unusable space from Header */
+  height: calc(100% - #{$navbarHeight});
 }
 </style>

@@ -2,6 +2,8 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Sale from './views/Sale.vue';
 import Receipts from './views/Receipts.vue';
+import Billing from './views/Billing.vue';
+import CashPayment from './views/CashPayment.vue';
 
 Vue.use(Router);
 
@@ -12,13 +14,30 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      redirect: '/sale',
-      component: Sale
+      redirect: '/sale'
     },
     {
       path: '/sale',
-      name: 'sale',
-      component: Sale
+      component: Sale,
+      children: [
+        {
+          path: '',
+          name: 'sale-billing',
+          components: { 'sale-billing': Billing }
+        },
+        {
+          path: '/cash-payment',
+          name: 'cash-payment',
+          beforeEnter: (to, from, next) => {
+            if (from.name !== 'sale-billing') {
+              next('/');
+            } else {
+              next();
+            }
+          },
+          components: { 'cash-payment': CashPayment }
+        }
+      ]
     },
     {
       path: '/receipts',

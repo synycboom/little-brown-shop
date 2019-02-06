@@ -5,14 +5,14 @@
       size="3x"
       class="view-type__grid"
       :class="gridClasses"
-      @click="$emit('change', 'grid')"
+      @click="$emit('change', 'GRID')"
     />
     <FontAwesomeIcon
       icon="list"
       size="3x"
       class="view-type__list"
       :class="listClasses"
-      @click="$emit('change', 'list')"
+      @click="$emit('change', 'LIST')"
     />
   </div>
 </template>
@@ -22,7 +22,7 @@ export default {
   name: 'ViewType',
   props: {
     type: {
-      // The choice be limited to 'grid' or 'list'
+      // The choice be limited to 'GRID' or 'LIST'
       type: String,
       required: true
     }
@@ -30,12 +30,12 @@ export default {
   computed: {
     gridClasses() {
       return {
-        'view-type__grid--active': this.type === 'grid'
+        'view-type__grid--active': this.type === 'GRID'
       };
     },
     listClasses() {
       return {
-        'view-type__list--active': this.type === 'list'
+        'view-type__list--active': this.type === 'LIST'
       };
     }
   }

@@ -39,7 +39,7 @@ export default {
   color: white;
   left: -100%;
   z-index: 20;
-  padding-top: $headerHeight;
+  padding-top: $navbarHeight;
 
   &.drawer-active {
     left: 0px;
