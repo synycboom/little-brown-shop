@@ -10,7 +10,7 @@
         />
       </template>
       <template slot="center">
-        <h2 class="cart__title">Cart ({{ totalProductsIncart }})</h2>
+        <h2 class="cart__title">Cart ({{ formattedTotalProductsInCart }})</h2>
       </template>
     </Header>
 
@@ -38,13 +38,13 @@
           label="Clear"
           class="cart__clear-button"
           @click="clearCart"
-          :disabled="totalProductsIncart === 0"
+          :disabled="totalProductsInCart === 0"
         />
         <Button
           label="Pay"
           class="cart__pay-button"
           @click="handlePayClick"
-          :disabled="totalProductsIncart === 0"
+          :disabled="totalProductsInCart === 0"
         />
       </div>
     </div>
@@ -57,6 +57,7 @@ import TextButton from '../components/TextButton';
 import Button from '../components/Button';
 import BillingList from '../components/BillingList';
 import Header from '../components/Header';
+import { formatComma } from '../utils';
 
 export default {
   name: 'Cart',
@@ -67,6 +68,9 @@ export default {
     Header
   },
   computed: {
+    formattedTotalProductsInCart() {
+      return formatComma(this.totalProductsInCart);
+    },
     ...mapGetters([
       'billingItems',
       'subTotal',
@@ -75,7 +79,7 @@ export default {
       'formattedSubTotal',
       'formattedDiscount',
       'formattedTotal',
-      'totalProductsIncart'
+      'totalProductsInCart'
     ])
   },
   methods: {
@@ -84,7 +88,7 @@ export default {
       this.$router.go(-1);
     },
     handlePayClick() {
-      if (this.totalProductsIncart > 0) {
+      if (this.totalProductsInCart > 0) {
         this.$router.push({ name: 'sale-cash-payment' });
       }
     },

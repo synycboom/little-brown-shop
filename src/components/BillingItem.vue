@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <img class="item__cover" height="60" width="40" alt="item" :src="cover" />
+    <img class="item__cover" height="60" width="40" alt="item" :src="cover">
     <div class="item__content">
       <div class="item__title">
         <div class="two-lines-ellipsis">{{ title }}</div>
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { formatPrice } from '../utils.js';
+import { formatThaiBath } from '../utils.js';
 
 export default {
   name: 'BillingItem',
@@ -60,7 +60,7 @@ export default {
   },
   computed: {
     formattedPrice() {
-      return formatPrice('฿')(this.price * this.count);
+      return formatThaiBath(this.price * this.count);
     }
   }
 };

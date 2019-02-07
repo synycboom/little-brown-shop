@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { formatPrice } from '../utils.js';
+import { formatThaiBath } from '../utils.js';
 
 export default {
   name: 'ProductItemList',
@@ -30,7 +30,7 @@ export default {
   },
   computed: {
     formattedPrice() {
-      return formatPrice('฿')(this.price);
+      return formatThaiBath(this.price);
     }
   }
 };

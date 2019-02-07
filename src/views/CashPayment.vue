@@ -2,11 +2,7 @@
   <div class="cash-payment">
     <Header>
       <template slot="left">
-        <TextButton
-          label="Back"
-          icon="chevron-left"
-          @click="navigateToBilling"
-        />
+        <TextButton label="Back" icon="chevron-left" @click="navigateToBilling"/>
       </template>
     </Header>
 
@@ -17,11 +13,7 @@
       </div>
       <div class="cash-payment__pay">
         <span class="cash-payment__pay-label">Pay</span>
-        <PayTextBox
-          class="cash-payment__pay-number"
-          :value="pay"
-          @input="updatePay"
-        />
+        <PayTextBox class="cash-payment__pay-number" :value="pay" @input="updatePay"/>
       </div>
     </div>
 
@@ -57,14 +49,14 @@ export default {
   },
   computed: {
     canFinish() {
-      return this.totalProductsIncart > 0 && this.pay >= this.total;
+      return this.totalProductsInCart > 0 && this.pay >= this.total;
     },
     ...mapState({
       pay: state => state.pay
     }),
     ...mapGetters([
       'total',
-      'totalProductsIncart',
+      'totalProductsInCart',
       'formattedTotal',
       'formattedChange'
     ])

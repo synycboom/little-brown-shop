@@ -92,7 +92,7 @@ export const getters = {
 
     return items;
   },
-  totalProductsIncart(state) {
+  totalProductsInCart(state) {
     let count = 0;
 
     for (const productId of state.selectedProductIdList) {

@@ -7,20 +7,24 @@
         size="lg"
         @click="handleCartClick"
       />
-      <span class="navbar__total-items">{{
-        Number(totalProductsIncart).toLocaleString('en')
-      }}</span>
+      <span class="navbar__total-items">
+        {{ formattedTotalProductsInCart }}
+      </span>
     </div>
   </nav>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
+import { formatComma } from '../utils';
 
 export default {
   name: 'NavBar',
   computed: {
-    ...mapGetters(['totalProductsIncart'])
+    formattedTotalProductsInCart() {
+      return formatComma(this.totalProductsInCart);
+    },
+    ...mapGetters(['totalProductsInCart'])
   },
   methods: {
     handleCartClick() {
