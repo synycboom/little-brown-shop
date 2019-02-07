@@ -33,6 +33,7 @@
       <Button
         label="Done"
         class="cash-payment__done-button"
+        :disabled="!canFinish"
         @click="finishPayment"
       />
     </div>
@@ -55,10 +56,18 @@ export default {
     Header
   },
   computed: {
+    canFinish() {
+      return this.totalProductsIncart > 0 && this.pay >= this.total;
+    },
     ...mapState({
       pay: state => state.pay
     }),
-    ...mapGetters(['total', 'formattedTotal', 'formattedChange'])
+    ...mapGetters([
+      'total',
+      'totalProductsIncart',
+      'formattedTotal',
+      'formattedChange'
+    ])
   },
   methods: {
     updatePay(pay) {
@@ -68,7 +77,7 @@ export default {
       this.$router.go(-1);
     },
     finishPayment() {
-      if (this.pay >= this.total) {
+      if (this.canFinish) {
         this.$eventBus.$emit('finishPayment');
       } else {
         throw new Error('User pays less than total!');

@@ -15,7 +15,7 @@
     </Header>
 
     <div class="cart__content">
-      <BillingList :items="billingItems"/>
+      <BillingList :items="billingItems" />
     </div>
 
     <div class="cart__footer">
@@ -34,8 +34,18 @@
         </div>
       </div>
       <div class="cart__buttons">
-        <Button label="Clear" class="cart__clear-button"/>
-        <Button label="Pay" class="cart__pay-button" @click="handlePayClick"/>
+        <Button
+          label="Clear"
+          class="cart__clear-button"
+          @click="clearCart"
+          :disabled="totalProductsIncart === 0"
+        />
+        <Button
+          label="Pay"
+          class="cart__pay-button"
+          @click="handlePayClick"
+          :disabled="totalProductsIncart === 0"
+        />
       </div>
     </div>
   </div>
@@ -74,7 +84,13 @@ export default {
       this.$router.go(-1);
     },
     handlePayClick() {
-      this.$router.push({ name: 'sale-cash-payment' });
+      if (this.totalProductsIncart > 0) {
+        this.$router.push({ name: 'sale-cash-payment' });
+      }
+    },
+    clearCart() {
+      this.$store.commit('clearCart');
+      this.$router.push({ name: 'sale' });
     }
   }
 };
