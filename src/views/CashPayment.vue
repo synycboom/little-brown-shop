@@ -2,7 +2,11 @@
   <div class="cash-payment">
     <Header>
       <template slot="left">
-        <TextButton label="Back" icon="chevron-left" @click="navigateToBilling"/>
+        <TextButton
+          label="Back"
+          icon="chevron-left"
+          @click="navigateToBilling"
+        />
       </template>
     </Header>
 
@@ -13,7 +17,11 @@
       </div>
       <div class="cash-payment__pay">
         <span class="cash-payment__pay-label">Pay</span>
-        <PayTextBox class="cash-payment__pay-number" :value="pay" @input="updatePay"/>
+        <PayTextBox
+          class="cash-payment__pay-number"
+          :value="pay"
+          @input="updatePay"
+        />
       </div>
     </div>
 
@@ -71,8 +79,6 @@ export default {
     finishPayment() {
       if (this.canFinish) {
         this.$eventBus.$emit('finishPayment');
-      } else {
-        throw new Error('User pays less than total!');
       }
     }
   }

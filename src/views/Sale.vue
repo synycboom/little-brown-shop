@@ -23,6 +23,19 @@
       <router-view name="sale-cart" @backClick="hideRightSection" />
       <router-view name="cash-payment" />
     </section>
+
+    <Modal v-if="showModal" @close="showModal = false">
+      <Receipt
+        slot="body"
+        :date="receipt.date"
+        :discount="receipt.discount"
+        :pay="receipt.pay"
+        :change="receipt.change"
+        :subTotal="receipt.subTotal"
+        :total="receipt.total"
+        :items="receipt.items"
+      />
+    </Modal>
   </div>
 </template>
 
@@ -31,13 +44,30 @@ import Loading from '../components/Loading';
 import BarcodeSearchBox from '../components/BarcodeSearchBox';
 import ViewType from '../components/ViewType';
 import ProductList from '../components/ProductList';
+import Modal from '../components/Modal';
+import Receipt from '../components/Receipt';
 import { mapState } from 'vuex';
 
 export default {
   name: 'Sale',
+  components: {
+    BarcodeSearchBox,
+    ViewType,
+    ProductList,
+    Loading,
+    Modal,
+    Receipt
+  },
   created() {
     this.$eventBus.$on('finishPayment', () => {
       this.$store.commit('finishPayment');
+      // Show the latest receipt
+      if (this.receipts.length > 0) {
+        console.log(this.receipts);
+        this.receipt = this.receipts[this.receipts.length - 1];
+        this.showModal = true;
+      }
+
       this.$router.replace({ name: 'sale' });
     });
   },
@@ -59,14 +89,12 @@ export default {
       /* Used for determining whether or not billing section should be shown */
       isRightSectionShown: false,
       /* For using in ViewType component */
-      type: 'GRID'
+      type: 'GRID',
+      /* For determining whether the receipt modal should be shown */
+      showModal: false,
+      /* For using in the receript modal */
+      receipt: {}
     };
-  },
-  components: {
-    BarcodeSearchBox,
-    ViewType,
-    ProductList,
-    Loading
   },
   computed: {
     /* Computed CSS classes */
@@ -81,7 +109,7 @@ export default {
       };
     },
     /* Computed props associated to products */
-    ...mapState(['normalizedProducts', 'loading'])
+    ...mapState(['normalizedProducts', 'loading', 'receipts'])
   },
   methods: {
     showRightSectionIfNeeded(routeName) {
