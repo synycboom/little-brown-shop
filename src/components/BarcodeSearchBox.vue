@@ -8,7 +8,7 @@
       @keyup.enter="search"
       @click="selectAll"
       ref="input"
-    >
+    />
     <div class="searchbox__cart-button">
       <FontAwesomeIcon
         :icon="icon"
@@ -29,7 +29,7 @@ export default {
     placeholder: {
       type: String,
       default() {
-        return 'Enter a barcode (Use ID)';
+        return 'Enter a barcode (use ID)';
       }
     }
   },
