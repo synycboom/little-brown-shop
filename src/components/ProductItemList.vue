@@ -1,5 +1,5 @@
 <template>
-  <div class="product-item" @click="$eventBus.$emit('addToCart', id)">
+  <div class="product-item" @click="$store.commit({ type: 'addToCart', id })">
     <span class="product-item__title">{{ title }}</span>
     <span class="product-item__price">{{ formattedPrice }}</span>
   </div>

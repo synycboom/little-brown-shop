@@ -1,7 +1,7 @@
 <template>
   <div class="searchbox">
-    <input type="text" class="searchbox__input" />
-    <FontAwesomeIcon icon="barcode" size="3x" class="searchbox__icon" />
+    <input type="text" class="searchbox__input">
+    <FontAwesomeIcon icon="barcode" size="3x" class="searchbox__icon"/>
   </div>
 </template>
 
@@ -15,8 +15,6 @@ export default {};
 .searchbox {
   display: flex;
   width: 40%;
-  min-width: 230px;
-  max-width: 380px;
   height: 2.5rem;
 
   .searchbox__input {

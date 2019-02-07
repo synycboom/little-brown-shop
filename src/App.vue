@@ -7,9 +7,14 @@
       :icon="toggleIcon"
       @click="toggleDrawer"
     />
-    <NavBar :isDrawerOpen="isDrawerOpen" @toggleDrawer="toggleDrawer"/>
+    <NavBar :isDrawerOpen="isDrawerOpen" @toggleDrawer="toggleDrawer" />
     <Drawer :isDrawerOpen="isDrawerOpen">
-      <DrawerItem title="Sale" :linkTo="{ name: 'sale-billing' }" icon="dollar-sign" replace/>
+      <DrawerItem
+        title="Sale"
+        :linkTo="{ name: 'sale' }"
+        icon="dollar-sign"
+        replace
+      />
       <DrawerItem
         title="Receipts"
         :linkTo="{ name: 'receipts' }"
@@ -18,7 +23,7 @@
       />
     </Drawer>
     <main>
-      <router-view class="main"/>
+      <router-view class="main" />
     </main>
   </div>
 </template>
@@ -76,7 +81,7 @@ body {
 .toggle-button {
   top: 18px;
   left: 20px;
-  z-index: 21;
+  z-index: $toggleButtonZIndex;
   position: fixed;
 
   &.toggle-button-active {

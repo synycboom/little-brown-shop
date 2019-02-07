@@ -8,7 +8,7 @@
   >
     <template v-if="type === 'GRID'">
       <ProductItemGrid
-        v-for="item in items"
+        v-for="item in products"
         :key="item.id"
         :id="item.id"
         :cover="item.cover"
@@ -18,7 +18,7 @@
     </template>
     <template v-else>
       <ProductItemList
-        v-for="item in items"
+        v-for="item in products"
         :key="item.id"
         :id="item.id"
         :cover="item.cover"
@@ -34,6 +34,7 @@ import Vue from 'vue';
 import ProductItemList from './ProductItemList';
 import ProductItemGrid from './ProductItemGrid';
 import InfiniteScroll from 'vue-infinite-scroll';
+import { mapState } from 'vuex';
 
 export default {
   name: 'ProductList',
@@ -43,12 +44,6 @@ export default {
       type: String,
       default() {
         return 'GRID';
-      }
-    },
-    items: {
-      type: Array,
-      default() {
-        return [];
       }
     }
   },
@@ -61,8 +56,11 @@ export default {
       busy: false
     };
   },
+  computed: {
+    ...mapState(['products'])
+  },
   watch: {
-    items() {
+    products() {
       this.busy = false;
     },
     type() {

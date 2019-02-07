@@ -5,18 +5,30 @@
       <FontAwesomeIcon
         icon="shopping-cart"
         size="lg"
-        @click="$eventBus.$emit('shoppingCartClick')"
+        @click="handleCartClick"
       />
-      <span class="navbar__total-items">
-        {{ Number(0).toLocaleString('en') }}
-      </span>
+      <span class="navbar__total-items">{{
+        Number(totalProductsIncart).toLocaleString('en')
+      }}</span>
     </div>
   </nav>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-  name: 'NavBar'
+  name: 'NavBar',
+  computed: {
+    ...mapGetters(['totalProductsIncart'])
+  },
+  methods: {
+    handleCartClick() {
+      this.$router.push({
+        name: 'sale-cart'
+      });
+    }
+  }
 };
 </script>
 
@@ -34,6 +46,7 @@ export default {
   width: 100%;
   height: $navbarHeight;
   background-color: white;
+  z-index: $navBarZIndex;
 
   .navbar__brand {
     margin-left: 10px;
@@ -41,6 +54,10 @@ export default {
 
   .navbar__shopping-cart {
     margin-left: auto;
+
+    @include breakpoint(mediumDevices) {
+      display: none;
+    }
 
     .navbar__total-items {
       margin-left: 5px;

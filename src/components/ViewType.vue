@@ -2,14 +2,12 @@
   <div class="view-type">
     <FontAwesomeIcon
       icon="th"
-      size="3x"
       class="view-type__grid"
       :class="gridClasses"
       @click="$emit('change', 'GRID')"
     />
     <FontAwesomeIcon
       icon="list"
-      size="3x"
       class="view-type__list"
       :class="listClasses"
       @click="$emit('change', 'LIST')"
@@ -49,11 +47,13 @@ export default {
   display: inline-block;
   border: 1px solid $primaryColor;
   height: 2.5rem;
-  min-width: 98px;
+  min-width: 100px;
+  max-width: 100px;
 
   .view-type__grid {
     padding: 8px;
     height: inherit;
+    width: 50%;
 
     &.view-type__grid--active {
       background-color: $primaryColor;
@@ -64,6 +64,7 @@ export default {
   .view-type__list {
     padding: 8px;
     height: inherit;
+    width: 50%;
 
     &.view-type__list--active {
       background-color: $primaryColor;

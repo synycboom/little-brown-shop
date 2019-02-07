@@ -17,7 +17,11 @@
       </div>
       <div class="cash-payment__pay">
         <span class="cash-payment__pay-label">Pay</span>
-        <PayTextBox class="cash-payment__pay-number" v-model="pay" />
+        <PayTextBox
+          class="cash-payment__pay-number"
+          :value="pay"
+          @input="updatePay"
+        />
       </div>
     </div>
 
@@ -36,11 +40,11 @@
 </template>
 
 <script>
-import { formatThaiBath } from '../utils.js';
 import TextButton from '../components/TextButton';
 import PayTextBox from '../components/PayTextBox';
 import Button from '../components/Button';
 import Header from '../components/Header';
+import { mapGetters, mapState } from 'vuex';
 
 export default {
   name: 'CashPayment',
@@ -50,35 +54,22 @@ export default {
     PayTextBox,
     Header
   },
-  props: {
-    total: {
-      type: Number,
-      required: true
-    }
-  },
-  data() {
-    return {
-      pay: 0
-    };
-  },
   computed: {
-    change() {
-      return Math.max(this.pay - this.total, 0);
-    },
-    formattedChange() {
-      return formatThaiBath(this.change);
-    },
-    formattedTotal() {
-      return formatThaiBath(this.total);
-    }
+    ...mapState({
+      pay: state => state.pay
+    }),
+    ...mapGetters(['total', 'formattedTotal', 'formattedChange'])
   },
   methods: {
+    updatePay(pay) {
+      this.$store.commit('updatePay', { pay });
+    },
     navigateToBilling() {
       this.$router.go(-1);
     },
     finishPayment() {
       if (this.pay >= this.total) {
-        this.$eventBus.$emit('paymentSuccess');
+        this.$eventBus.$emit('finishPayment');
       } else {
         throw new Error('User pays less than total!');
       }

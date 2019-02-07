@@ -38,7 +38,7 @@ export default {
   background-color: $primaryColor;
   color: white;
   left: -100%;
-  z-index: 20;
+  z-index: $drawerZIndex;
   padding-top: $navbarHeight;
 
   &.drawer-active {

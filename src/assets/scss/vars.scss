@@ -5,5 +5,32 @@ $grey: rgba(135, 142, 136, 1);
 $cambridgeBlue: rgba(150, 192, 183, 1);
 $bone: rgba(212, 223, 199, 1);
 
+/*********************
+HEIGHT
+*********************/
+
 $navbarHeight: 60px;
 $headerHeight: 40px;
+
+/*********************
+Z-INDEX
+*********************/
+$navBarZIndex: 5;
+$drawerZIndex: 20;
+$toggleButtonZIndex: 21;
+
+/*********************
+BREAKPOINTS
+*********************/
+
+@mixin breakpoint($point) {
+  @if $point == mediumDevices {
+    @media (min-width: 750px) {
+      @content;
+    }
+  } @else if $point == smallDevices {
+    @media (max-width: 750px) {
+      @content;
+    }
+  }
+}

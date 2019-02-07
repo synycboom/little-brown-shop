@@ -9,21 +9,21 @@
         class="item__remove-icon"
         size="lg"
         icon="trash"
-        @click="$eventBus.$emit('removeFromCart', id)"
+        @click="$store.commit({ type: 'removeFromCart', id })"
       />
       <div class="item__button-groups">
         <FontAwesomeIcon
           class="item__minus-button"
           size="lg"
           icon="minus-square"
-          @click="$eventBus.$emit('decreaseQuantity', id)"
+          @click="$store.commit({ type: 'decreaseQuantity', id })"
         />
         <span class="item__count">{{ count }}</span>
         <FontAwesomeIcon
           class="item__plus-button"
           size="lg"
           icon="plus-square"
-          @click="$eventBus.$emit('increaseQuantity', id)"
+          @click="$store.commit({ type: 'increaseQuantity', id })"
         />
       </div>
       <span class="item__price">{{ formattedPrice }}</span>
