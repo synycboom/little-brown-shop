@@ -47,6 +47,7 @@ export default {
   display: inline-block;
   border: 1px solid $primaryColor;
   height: 2.5rem;
+  width: 100%;
   min-width: 100px;
   max-width: 100px;
 

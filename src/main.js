@@ -20,7 +20,8 @@ import {
   faChevronLeft,
   faPlusSquare,
   faMinusSquare,
-  faTrash
+  faTrash,
+  faCartArrowDown
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -37,7 +38,8 @@ library.add(
   faChevronLeft,
   faPlusSquare,
   faMinusSquare,
-  faTrash
+  faTrash,
+  faCartArrowDown
 );
 
 // Define EventBus in Vue prototype

@@ -2,25 +2,33 @@
   <div class="sale">
     <section class="sale__product-section" :class="productSelectClasses">
       <div class="sale__search-bar">
-        <SearchBox class="sale__search-box"/>
-        <ViewType class="sale__view-type" :type="type" @change="handleTypeChange"/>
+        <BarcodeSearchBox class="sale__search-box" />
+        <ViewType
+          class="sale__view-type"
+          :type="type"
+          @change="handleTypeChange"
+        />
       </div>
 
-      <ProductList :type="type" class="sale__product-list" @loadMore="$store.dispatch('loadMore')"/>
+      <ProductList
+        :type="type"
+        class="sale__product-list"
+        @loadMore="$store.dispatch('loadMore')"
+      />
 
-      <Loading :loading="loading"/>
+      <Loading :loading="loading" />
     </section>
 
     <section class="sale__cart-section" :class="billingClasses">
-      <router-view name="sale-cart" @backClick="hideRightSection"/>
-      <router-view name="cash-payment"/>
+      <router-view name="sale-cart" @backClick="hideRightSection" />
+      <router-view name="cash-payment" />
     </section>
   </div>
 </template>
 
 <script>
 import Loading from '../components/Loading';
-import SearchBox from '../components/SearchBox';
+import BarcodeSearchBox from '../components/BarcodeSearchBox';
 import ViewType from '../components/ViewType';
 import ProductList from '../components/ProductList';
 import { mapState } from 'vuex';
@@ -55,7 +63,7 @@ export default {
     };
   },
   components: {
-    SearchBox,
+    BarcodeSearchBox,
     ViewType,
     ProductList,
     Loading

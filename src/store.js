@@ -9,6 +9,9 @@ const productService = new ProductService();
 
 export default new Vuex.Store({
   state: {
+    // Loading flag of get product by barcode
+    loadingByBarcode: false,
+    // Loading flag of list products
     loading: false,
     // Store all products which will be lazily loaded
     products: [],
@@ -125,6 +128,22 @@ export default new Vuex.Store({
       state.loading = false;
     },
     fetchProductsFailure(state, { error }) {
+      state.loading = false;
+      // TODO: Show error messages
+      console.error(error);
+    },
+    getProductByBarcodeRequest(state) {
+      state.loadingByBarcode = true;
+      console.log(state.loadingByBarcode);
+    },
+    getProductByBarcodeSuccess(state, { product }) {
+      if (product) {
+        this.commit('addToCart', { id: product.id });
+      }
+      state.loadingByBarcode = false;
+    },
+    getProductByBarcodeFailure(state, { error }) {
+      state.loadingByBarcode = false;
       // TODO: Show error messages
       console.error(error);
     },
@@ -220,11 +239,25 @@ export default new Vuex.Store({
           state.page,
           state.pageSize
         );
-      } catch (response) {
-        commit('fetchProductsFailure', { error: response.data });
+      } catch (error) {
+        commit('fetchProductsFailure', { error });
       }
 
       commit('fetchProductsSuccess', { products });
+    },
+    async getProductByBarcode({ state, commit }, barcode) {
+      let product = null;
+
+      // Show loading
+      commit('getProductByBarcodeRequest');
+
+      try {
+        product = await productService.getProductByBarcode(barcode);
+      } catch (error) {
+        commit('getProductByBarcodeFailure', { error });
+      }
+
+      commit('getProductByBarcodeSuccess', { product });
     }
   }
 });
