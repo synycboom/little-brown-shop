@@ -105,6 +105,7 @@ $contentWidth: calc(100% - #{$coverWidth});
       left: 5px;
 
       .item__minus-button {
+        cursor: pointer;
       }
 
       .item__count {
@@ -112,10 +113,12 @@ $contentWidth: calc(100% - #{$coverWidth});
       }
 
       .item__plus-button {
+        cursor: pointer;
       }
     }
 
     .item__remove-icon {
+      cursor: pointer;
       position: absolute;
       top: 0px;
       right: 0px;

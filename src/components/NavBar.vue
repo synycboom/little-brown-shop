@@ -7,9 +7,9 @@
         size="lg"
         @click="handleCartClick"
       />
-      <span class="navbar__total-items">
-        {{ formattedTotalProductsInCart }}
-      </span>
+      <span class="navbar__total-items">{{
+        formattedTotalProductsInCart
+      }}</span>
     </div>
   </nav>
 </template>
@@ -57,6 +57,7 @@ export default {
   }
 
   .navbar__shopping-cart {
+    cursor: pointer;
     margin-left: auto;
 
     @include breakpoint(mediumDevices) {

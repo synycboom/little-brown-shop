@@ -1,8 +1,8 @@
 <template>
   <div class="drawer" :class="drawerClasses">
-    <ul class="drawer__item-container">
+    <div class="drawer__item-container">
       <slot></slot>
-    </ul>
+    </div>
   </div>
 </template>
 

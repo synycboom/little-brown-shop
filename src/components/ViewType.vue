@@ -50,6 +50,7 @@ export default {
   width: 100%;
   min-width: 100px;
   max-width: 100px;
+  cursor: pointer;
 
   .view-type__grid {
     padding: 8px;

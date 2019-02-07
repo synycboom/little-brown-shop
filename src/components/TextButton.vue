@@ -21,6 +21,7 @@ export default {
 
 <style lang="scss" scoped>
 .button {
+  cursor: pointer;
   text-transform: uppercase;
   border: 0px;
   background-color: transparent;

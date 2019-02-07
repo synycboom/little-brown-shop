@@ -1,6 +1,6 @@
 <template>
   <button class="button" @click="$emit('click')">
-    <FontAwesomeIcon v-if="icon" size="lg" :icon="icon" class="button__icon"/>
+    <FontAwesomeIcon v-if="icon" size="lg" :icon="icon" class="button__icon" />
     <span class="button__label">{{ label }}</span>
   </button>
 </template>
@@ -23,6 +23,7 @@ export default {
 @import '../assets/scss/vars.scss';
 
 .button {
+  cursor: pointer;
   text-transform: uppercase;
   border: 1px solid $primaryColor;
   background-color: transparent;

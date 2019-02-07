@@ -164,6 +164,7 @@ $productListHeight: calc(100% - #{$searchBarHeight});
       position: relative;
       display: block;
       flex-grow: 1;
+      margin-right: 10px;
       left: 0%;
     }
 
