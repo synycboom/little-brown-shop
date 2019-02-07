@@ -86,7 +86,5 @@ export default {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  /* To make a smooth scrolling */
-  -webkit-overflow-scrolling: touch;
 }
 </style>

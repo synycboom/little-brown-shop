@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import ProductService from './services/ProductService.js';
-import { formatThaiBath } from './utils.js';
+import { formatThaiBath, formatComma } from './utils.js';
 
 Vue.use(Vuex);
 
@@ -49,18 +49,8 @@ export const state = {
     6: 14,
     7: 15
   },
-  // Store history of orders
-  history: [
-    /* 
-      { 
-        pay: 0,
-        date: new Date(),
-        selectedProductCount: {},
-        selectedProductIdList: [],
-        normalizedProducts: {}
-      }
-    */
-  ]
+  // Store receipts of orders
+  receipts: []
 };
 
 export const getters = {
@@ -242,17 +232,20 @@ export const mutations = {
     const items = state.selectedProductIdList.map(id => {
       return {
         ...normalizedProducts[id],
-        count: state.selectedProductCount[id],
-        total:
+        count: formatComma(state.selectedProductCount[id]),
+        total: formatThaiBath(
           state.selectedProductCount[id] * Number(normalizedProducts[id].price)
+        )
       };
     });
 
-    state.history.push({
-      subTotal: this.getters.subTotal,
-      discount: this.getters.discount,
-      total: this.getters.total,
-      pay: state.pay,
+    state.receipts.push({
+      orderId: 'ORDER' + `${state.receipts.length}`.padStart(4, '0'),
+      subTotal: this.getters.formattedSubTotal,
+      discount: this.getters.formattedDiscount,
+      total: this.getters.formattedTotal,
+      change: this.getters.formattedChange,
+      pay: formatThaiBath(state.pay),
       date: new Date(),
       items
     });

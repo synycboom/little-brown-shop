@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Sale from './views/Sale.vue';
-import Receipts from './views/Receipts.vue';
+import History from './views/History.vue';
 import Cart from './views/Cart.vue';
 import CashPayment from './views/CashPayment.vue';
 
@@ -67,9 +67,9 @@ export default new Router({
       ]
     },
     {
-      path: '/receipts',
-      name: 'receipts',
-      component: Receipts
+      path: '/history',
+      name: 'history',
+      component: History
     }
   ]
 });

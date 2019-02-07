@@ -124,8 +124,6 @@ $footerHeight: 150px;
   .cart__content {
     height: calc(100% - #{$headerHeight + $footerHeight});
     overflow: auto;
-    /* To make a smooth scrolling */
-    -webkit-overflow-scrolling: touch;
   }
 
   .cart__footer {
