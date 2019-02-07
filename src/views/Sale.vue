@@ -61,14 +61,16 @@ export default {
   created() {
     this.$eventBus.$on('finishPayment', () => {
       this.$store.commit('finishPayment');
-      // Show the latest receipt
-      if (this.receipts.length > 0) {
-        console.log(this.receipts);
-        this.receipt = this.receipts[this.receipts.length - 1];
-        this.showModal = true;
-      }
-
       this.$router.replace({ name: 'sale' });
+
+      // Wait a little bit and show the latest receipt
+      setTimeout(() => {
+        // Show the latest receipt
+        if (this.receipts.length > 0) {
+          this.receipt = this.receipts[this.receipts.length - 1];
+          this.showModal = true;
+        }
+      }, 1200);
     });
   },
   beforeDestroy() {

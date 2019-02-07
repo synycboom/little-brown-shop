@@ -6,7 +6,7 @@
     @blur="isInputActive = false"
     @focus="isInputActive = true"
     @click="selectAll"
-  >
+  />
 </template>
 
 <script>
@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     selectAll() {
-      // Select all text
+      // Select all text in the input
       this.$nextTick(() => {
         this.$el.setSelectionRange(0, this.displayValue.length);
       });
@@ -40,10 +40,10 @@ export default {
     displayValue: {
       get() {
         if (this.isInputActive) {
-          // Cursor is inside the input field. unformat display value for user
+          // The cursor is inside the input field. unformat display value for a user
           return this.value.toString();
         } else {
-          // User is not modifying now. Format display value for user interface
+          // A user is not modifying now. Format display value for user interface
           return formatThaiBath(this.value);
         }
       },

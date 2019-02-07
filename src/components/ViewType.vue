@@ -20,7 +20,7 @@ export default {
   name: 'ViewType',
   props: {
     type: {
-      // The choice be limited to 'GRID' or 'LIST'
+      // The choice should be limited to 'GRID' or 'LIST'
       type: String,
       required: true
     }

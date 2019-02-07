@@ -20,11 +20,10 @@ class ProductService extends BaseService {
 
       return books.splice(start, pageSize);
     } catch (error) {
-      if (error.response) {
-        return Promise.reject(error.response.data);
-      } else {
-        return Promise.reject({ detail: 'Something has gone wrong!' });
-      }
+      // Bacause we don't know what is the structure of error messages,
+      //  We show only our custom message
+      // return Promise.reject(error.response.data);
+      return Promise.reject('Something has gone wrong!');
     }
   }
 
@@ -39,11 +38,10 @@ class ProductService extends BaseService {
       const product = response.data.books.find(book => book.id === barcode);
       return product;
     } catch (error) {
-      if (error.response) {
-        return Promise.reject(error.response.data);
-      } else {
-        return Promise.reject({ detail: 'Something has gone wrong!' });
-      }
+      // Bacause we don't know what is the structure of error messages,
+      //  We show only our custom message
+      // return Promise.reject(error.response.data);
+      return Promise.reject('Something has gone wrong!');
     }
   }
 }

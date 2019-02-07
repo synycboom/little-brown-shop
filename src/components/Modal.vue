@@ -90,9 +90,7 @@ export default {
   }
 }
 
-/*
- * Transition
- */
+/* Transition */
 
 .modal-enter {
   opacity: 0;

@@ -154,12 +154,10 @@ export const mutations = {
   },
   fetchProductsFailure(state, { error }) {
     state.loading = false;
-    // TODO: Show error messages
-    console.error(error);
+    Vue.notify({ title: 'Error', text: error, type: 'error' });
   },
   getProductByBarcodeRequest(state) {
     state.loadingByBarcode = true;
-    console.log(state.loadingByBarcode);
   },
   getProductByBarcodeSuccess(state, { product }) {
     if (product) {
@@ -169,8 +167,7 @@ export const mutations = {
   },
   getProductByBarcodeFailure(state, { error }) {
     state.loadingByBarcode = false;
-    // TODO: Show error messages
-    console.error(error);
+    Vue.notify({ title: 'Error', text: error, type: 'error' });
   },
   clearCart(state) {
     state.selectedProductCount = {};
@@ -179,7 +176,11 @@ export const mutations = {
   },
   addToCart(state, { id }) {
     if (this.getters.isInCart(id)) {
-      // TODO: Notify a user that this product is already in cart
+      Vue.notify({
+        title: this.getters.normalizedProducts[id].title,
+        text: 'This book is already in cart.',
+        type: 'info'
+      });
       return;
     }
 
@@ -254,6 +255,12 @@ export const mutations = {
     state.selectedProductCount = {};
     state.selectedProductIdList = [];
     state.pay = 0;
+
+    Vue.notify({
+      title: 'Payment Success',
+      text: 'Opening a cash drawer...',
+      type: 'success'
+    });
   }
 };
 

@@ -1,3 +1,17 @@
+* {
+  box-sizing: border-box;
+  /* To make a smooth scrolling */
+  -webkit-overflow-scrolling: touch;
+}
+
+html,
+body {
+  font-size: 16px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
 // styles below is suggested by https://codepen.io/natonischuk/pen/KpNKQZ
 // to workaround text overflow ellipsis on 2 lines
 

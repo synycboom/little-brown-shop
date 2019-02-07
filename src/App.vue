@@ -7,6 +7,7 @@
       :icon="toggleIcon"
       @click="toggleDrawer"
     />
+    <notifications position="top center" classes="vue-notification" />
     <NavBar :isDrawerOpen="isDrawerOpen" @toggleDrawer="toggleDrawer" />
     <Drawer :isDrawerOpen="isDrawerOpen">
       <DrawerItem
@@ -67,20 +68,7 @@ export default {
 <style lang="scss">
 @import './assets/scss/vars.scss';
 @import './assets/scss/global.scss';
-
-* {
-  box-sizing: border-box;
-  /* To make a smooth scrolling */
-  -webkit-overflow-scrolling: touch;
-}
-
-html,
-body {
-  font-size: 16px;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-}
+@import './assets/scss/vue-notification.scss';
 
 .toggle-button {
   top: 18px;
