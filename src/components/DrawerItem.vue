@@ -29,12 +29,7 @@ export default {
 
 .drawer-item {
   list-style-type: none;
-  border-bottom: 1px solid #575757;
   height: 5rem;
-
-  &.router-link-active {
-    background-color: #252525;
-  }
 
   .drawer-item__icon {
     margin-left: 20px;
@@ -42,12 +37,12 @@ export default {
     width: 1rem;
     vertical-align: middle;
     height: 100%;
+    color: $fontColorGrey;
   }
 
   .drawer-item__link {
     font-weight: bold;
     text-decoration: none;
-    color: white;
     display: inline-block;
     margin-left: 1rem;
     // calc(100% - 2rem - 20px) comes from
@@ -57,8 +52,14 @@ export default {
     vertical-align: middle;
     padding: 2rem 0px;
 
-    &.router-link-exact-active {
-      color: #42b983;
+    @include textEffect;
+  }
+
+  &.router-link-active {
+    background-image: $primatyGradientImage;
+
+    .drawer-item__link {
+      color: $fontColorBlack;
     }
   }
 }

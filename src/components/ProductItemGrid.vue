@@ -1,6 +1,9 @@
 <template>
-  <div class="product-item" @click="$store.commit({ type: 'addToCart', id })">
-    <div class="product-item__content">
+  <div class="product-item">
+    <div
+      class="product-item__content"
+      @click="$store.commit({ type: 'addToCart', id })"
+    >
       <img
         class="product-item__cover"
         height="240"
@@ -93,8 +96,23 @@ $fiveItemsWidth: (100% / 5);
   .product-item__content {
     cursor: pointer;
     width: 161px;
-    border: 1px solid grey;
     margin: 0px auto;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 20px 0px;
+    border-radius: 9px;
+    overflow: hidden;
+    top: 0px;
+    position: relative;
+    transition: top 0.1s ease-out, box-shadow 0.1s ease-out;
+
+    &:hover {
+      top: 3px;
+      box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 20px 0px;
+    }
+
+    &:active {
+      top: 7px;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 20px 0px;
+    }
 
     .product-item__cover {
     }
@@ -103,13 +121,18 @@ $fiveItemsWidth: (100% / 5);
       display: inline-block;
       position: relative;
       width: 100%;
-      height: 90px;
-      padding: 0px 5px;
+      height: 100px;
 
       .product-item__title {
+        margin: 1em 10px;
       }
 
       .product-item__price {
+        text-align: center;
+        border-top: 1px solid rgb(216, 216, 216);
+        width: 100%;
+        height: 1.2rem;
+        padding-top: 7px;
         position: absolute;
         bottom: 0px;
       }

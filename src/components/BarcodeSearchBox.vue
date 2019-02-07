@@ -83,6 +83,12 @@ export default {
     border-right: 0px;
     border-bottom: 1px solid $primaryColor;
     border-radius: 0px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    &:focus {
+      box-shadow: $primaryColor 0px 0px 3px 0px;
+    }
   }
 
   .searchbox__cart-button {
@@ -96,10 +102,14 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 
     .searchbox__cart-icon {
       width: 1.6rem;
       height: 1.6rem;
+
+      @include iconEffect;
     }
   }
 }

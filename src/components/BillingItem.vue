@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <img class="item__cover" height="60" width="40" alt="item" :src="cover">
+    <img class="item__cover" height="60" width="40" alt="item" :src="cover" />
     <div class="item__content">
       <div class="item__title">
         <div class="two-lines-ellipsis">{{ title }}</div>
@@ -106,6 +106,8 @@ $contentWidth: calc(100% - #{$coverWidth});
 
       .item__minus-button {
         cursor: pointer;
+
+        @include iconEffect;
       }
 
       .item__count {
@@ -114,6 +116,8 @@ $contentWidth: calc(100% - #{$coverWidth});
 
       .item__plus-button {
         cursor: pointer;
+
+        @include iconEffect;
       }
     }
 
@@ -122,6 +126,8 @@ $contentWidth: calc(100% - #{$coverWidth});
       position: absolute;
       top: 0px;
       right: 0px;
+
+      @include iconEffect;
     }
 
     .item__price {

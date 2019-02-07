@@ -15,7 +15,7 @@
     </Header>
 
     <div class="cart__content">
-      <BillingList :items="billingItems" />
+      <BillingList :items="billingItems"/>
     </div>
 
     <div class="cart__footer">
@@ -35,12 +35,14 @@
       </div>
       <div class="cart__buttons">
         <Button
+          type="SECONDARY"
           label="Clear"
           class="cart__clear-button"
           @click="clearCart"
           :disabled="totalProductsInCart === 0"
         />
         <Button
+          type="PRIMARY"
           label="Pay"
           class="cart__pay-button"
           @click="handlePayClick"
@@ -178,10 +180,12 @@ $footerHeight: 150px;
       width: 100%;
 
       .cart__clear-button {
-        width: 50%;
+        width: 49%;
+        margin-right: 1%;
       }
       .cart__pay-button {
-        width: 50%;
+        width: 49%;
+        margin-left: 1%;
       }
     }
   }

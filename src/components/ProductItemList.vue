@@ -42,10 +42,21 @@ export default {
 .product-item {
   cursor: pointer;
   font-size: 1rem;
-  border: 1px solid $primaryColor;
   width: 100%;
   padding: 10px;
   display: flex;
+
+  &:nth-of-type(even) {
+    background-color: #80808036;
+  }
+
+  &:hover {
+    background-color: $primaryLightColor;
+  }
+
+  &:active {
+    background-color: $primaryColor;
+  }
 
   .product-item__title {
     width: 80%;

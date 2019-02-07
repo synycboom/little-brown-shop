@@ -14,14 +14,12 @@
         title="Sale"
         :linkTo="{ name: 'sale' }"
         icon="dollar-sign"
-        @click.native="toggleDrawer"
         replace
       />
       <DrawerItem
         title="History"
         :linkTo="{ name: 'history' }"
         icon="file-invoice-dollar"
-        @click.native="toggleDrawer"
         replace
       />
     </Drawer>
@@ -54,7 +52,8 @@ export default {
     }
   },
   computed: {
-    toggleIcon() {
+    toggleIcon(event) {
+      console.log(event);
       return this.isDrawerOpen ? 'times' : 'bars';
     },
     toggleClasses() {
@@ -70,16 +69,30 @@ export default {
 @import './assets/scss/global.scss';
 @import './assets/scss/vue-notification.scss';
 
+* {
+  box-sizing: border-box;
+  /* To make a smooth scrolling */
+  -webkit-overflow-scrolling: touch;
+
+  color: $fontColorBlack;
+}
+
+html,
+body {
+  font-size: 15px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
 .toggle-button {
-  top: 18px;
+  top: 20px;
   left: 20px;
   z-index: $toggleButtonZIndex;
   position: fixed;
   cursor: pointer;
 
-  &.toggle-button-active {
-    color: white;
-  }
+  @include iconEffect;
 }
 
 #app {
@@ -87,7 +100,7 @@ export default {
   width: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  // font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 main {

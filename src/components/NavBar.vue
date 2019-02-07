@@ -1,15 +1,15 @@
 <template>
   <nav class="navbar">
-    <span class="navbar__brand">Little Brown Shop</span>
+    <h2 class="navbar__brand">Little Brown Shop</h2>
     <div class="navbar__shopping-cart">
       <FontAwesomeIcon
         icon="shopping-cart"
         size="lg"
         @click="handleCartClick"
       />
-      <span class="navbar__total-items">{{
-        formattedTotalProductsInCart
-      }}</span>
+      <span class="navbar__total-items">
+        {{ formattedTotalProductsInCart }}
+      </span>
     </div>
   </nav>
 </template>
@@ -44,13 +44,13 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 10px 15px 10px 40px;
-  border: 1px solid $primaryColor;
   position: fixed;
   top: 0px;
   width: 100%;
   height: $navbarHeight;
   background-color: white;
   z-index: $navBarZIndex;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 28px 0px;
 
   .navbar__brand {
     margin-left: 10px;

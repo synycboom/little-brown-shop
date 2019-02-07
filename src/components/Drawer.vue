@@ -35,11 +35,11 @@ export default {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  background-color: $primaryColor;
-  color: white;
+  background-color: #fff;
   left: -100%;
   z-index: $drawerZIndex;
   padding-top: $navbarHeight;
+  box-shadow: 7px 0px 30px -2px rgba(0, 0, 0, 0.41);
 
   &.drawer-active {
     left: 0px;

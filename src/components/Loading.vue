@@ -1,6 +1,6 @@
 <template>
   <div class="loading" :class="loadingClasses">
-    <FontAwesomeIcon icon="circle-notch" spin class="loading__icon" />
+    <FontAwesomeIcon icon="circle-notch" spin class="loading__icon"/>
   </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
 
   &.loading--active {
     display: block;
-    background-color: $dimmerColor;
+    background-color: rgba(255, 255, 255, 0.8);
   }
 
   .loading__icon {

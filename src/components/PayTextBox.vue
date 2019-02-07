@@ -6,7 +6,7 @@
     @blur="isInputActive = false"
     @focus="isInputActive = true"
     @click="selectAll"
-  />
+  >
 </template>
 
 <script>
@@ -64,7 +64,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/scss/vars.scss';
+
 .pay-text-box {
   text-align: right;
+  height: 2.5rem;
+  border: 1px solid $primaryColor;
+  border-radius: 5px;
+
+  &:focus {
+    box-shadow: $primaryColor 0px 0px 3px 0px;
+  }
 }
 </style>

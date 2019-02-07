@@ -12,25 +12,22 @@
 
     <div class="cash-payment__content">
       <div class="cash-payment__total">
-        <span class="cash-payment__total-label">Total</span>
-        <span class="cash-payment__total-number">{{ formattedTotal }}</span>
+        <h4>Total</h4>
+        <h4>{{ formattedTotal }}</h4>
       </div>
       <div class="cash-payment__pay">
-        <span class="cash-payment__pay-label">Pay</span>
-        <PayTextBox
-          class="cash-payment__pay-number"
-          :value="pay"
-          @input="updatePay"
-        />
+        <h4>Pay</h4>
+        <PayTextBox :value="pay" @input="updatePay" />
       </div>
     </div>
 
     <div class="cash-payment__footer">
       <div class="cash-payment__change">
-        <span class="cash-payment__change-label">Change</span>
-        <span class="cash-payment__change-number">{{ formattedChange }}</span>
+        <h3>Change</h3>
+        <h3>{{ formattedChange }}</h3>
       </div>
       <Button
+        type="PRIMARY"
         label="Done"
         class="cash-payment__done-button"
         :disabled="!canFinish"
@@ -99,15 +96,11 @@ $footerHeight: 150px;
 
     .cash-payment__total {
       height: 3rem;
-      background-color: lightgray;
+      background-color: $primaryColor;
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      .cash-payment__total-label {
-      }
-      .cash-payment__total-number {
-      }
+      padding: 0px 1rem;
     }
 
     .cash-payment__pay {
@@ -115,11 +108,7 @@ $footerHeight: 150px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      .cash-payment__pay-label {
-      }
-      .cash-payment__pay-number {
-      }
+      padding: 0px 1rem;
     }
   }
 
@@ -135,16 +124,11 @@ $footerHeight: 150px;
     .cash-payment__change {
       height: 80px;
       width: 100%;
-      background-color: lightgray;
+      background-color: $primaryColor;
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      .cash-payment__change-label {
-      }
-
-      .cash-payment__change-number {
-      }
+      padding: 0px 1rem;
     }
 
     .cash-payment__done-button {

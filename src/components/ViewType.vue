@@ -46,6 +46,8 @@ export default {
 .view-type {
   display: inline-block;
   border: 1px solid $primaryColor;
+  border-radius: 5px;
+  overflow: hidden;
   height: 2.5rem;
   width: 100%;
   min-width: 100px;

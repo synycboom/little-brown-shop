@@ -40,7 +40,7 @@ export default {
 // This code comes from https://vuejs.org/v2/examples/modal.html
 .modal {
   position: fixed;
-  z-index: 9998;
+  z-index: 100;
   top: 0;
   left: 0;
   width: 100%;

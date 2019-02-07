@@ -1,10 +1,41 @@
-$primaryColor: rgba(68, 68, 68, 1);
-$secondaryColor: rgba(130, 115, 92, 1);
-$dimmerColor: rgba(255, 255, 255, 0.8);
-$grey: rgba(135, 142, 136, 1);
-$cambridgeBlue: rgba(150, 192, 183, 1);
-$bone: rgba(212, 223, 199, 1);
-
+$primaryColor: #00b900;
+$primaryLightColor: #06d106a3;
+$secondaryColor: #444444;
+// Use with background-image
+$primatyGradientImage: linear-gradient(
+  to left,
+  #00b900,
+  #37b900,
+  #4fb900,
+  #62b900,
+  #71b900
+);
+$primaryLightGradientImage: linear-gradient(
+  to left bottom,
+  #01c201,
+  #24c600,
+  #36cb00,
+  #44cf00,
+  #50d300
+);
+$secondaryGradientImage: linear-gradient(
+  to left bottom,
+  #595959,
+  #605f5f,
+  #666666,
+  #6d6c6c,
+  #737372
+);
+$secondaryLightGradientImage: linear-gradient(
+  to left bottom,
+  #7c7c7c,
+  #7f7f7f,
+  #828282,
+  #868686,
+  #898989
+);
+$fontColorBlack: #313134;
+$fontColorGrey: #535860;
 /*********************
 HEIGHT
 *********************/
@@ -32,5 +63,28 @@ BREAKPOINTS
     @media (max-width: 750px) {
       @content;
     }
+  }
+}
+
+/*********************
+EFFECT MIXINS 
+*********************/
+@mixin iconEffect {
+  & > path:hover {
+    color: #0e6f03;
+  }
+
+  & > path:active {
+    color: $primaryColor;
+  }
+}
+
+@mixin textEffect {
+  &:hover {
+    color: #0e6f03;
+  }
+
+  &:active {
+    color: $primaryColor;
   }
 }

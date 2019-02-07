@@ -1,6 +1,6 @@
 <template>
   <button class="button" @click="$emit('click')">
-    <FontAwesomeIcon v-if="icon" size="lg" :icon="icon" class="button__icon" />
+    <FontAwesomeIcon v-if="icon" size="lg" :icon="icon" class="button__icon"/>
     <span class="button__label">{{ label }}</span>
   </button>
 </template>
@@ -20,6 +20,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/scss/vars.scss';
+
 .button {
   cursor: pointer;
   text-transform: uppercase;
@@ -33,6 +35,7 @@ export default {
   }
 
   .button__label {
+    @include textEffect;
   }
 }
 </style>
