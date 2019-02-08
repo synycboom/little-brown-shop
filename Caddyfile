@@ -1,0 +1,11 @@
+{$DOMAIN_NAME} {
+    root /srv
+
+    rewrite {
+      to {path} index.html
+    }
+    
+    log stdout
+    errors stdout
+    gzip
+}

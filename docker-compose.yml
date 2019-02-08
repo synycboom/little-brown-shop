@@ -1,0 +1,20 @@
+version: '3'
+
+volumes:
+  production_web: {}
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: little-brown-shop
+    volumes:
+      - production_web:/root/.caddy
+    env_file:
+      - ./.env.caddy
+    ports:
+      - '0.0.0.0:80:80'
+      # In case you have a real domain name Caddy can get you a free certification from Let's encrypt
+      - '0.0.0.0:443:443'
+    restart: always

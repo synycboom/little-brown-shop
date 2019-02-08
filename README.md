@@ -1,34 +1,40 @@
-# little-brown-shop
+# Little Brown Shop
 
-## Project setup
-```
-yarn install
-```
+###### Demo: http://13.250.2.126
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+###### Github: https://github.com/synycboom/little-brown-shop
 
-### Compiles and minifies for production
+### Project setup for local development
+
+This project requires nodejs and yarn, so please install them first then install dependencies using this command.
+
 ```
-yarn run build
+$ yarn install
 ```
 
-### Run your tests
+You can run a development server via this command
+
 ```
-yarn run test
+$ yarn serve
 ```
 
-### Lints and fixes files
+### Deployment
+
+Firstly, you have to clone this project to your vm, and install the following requirements.
+
+1. Docker
+2. Docker Compose
+
+Create an env file for caddy server and configure a domain name.
+
 ```
-yarn run lint
+$ touch .env.caddy
 ```
 
-### Run your unit tests
-```
-yarn run test:unit
-```
+For configuration, check out .env.caddy.example. If you don't have a real domain name just leave it as '0.0.0.0:80'
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+After everything is ready, you should be able to build and run the application via this command.
+
+```
+$ docker-compose -f docker-compose.yml up -d
+```
