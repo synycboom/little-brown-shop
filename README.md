@@ -1,6 +1,6 @@
 # Little Brown Shop
 
-###### Demo: http://13.250.2.126
+###### Demo: https://test.synycboom.com
 
 ###### Github: https://github.com/synycboom/little-brown-shop
 
