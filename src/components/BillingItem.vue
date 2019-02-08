@@ -3,7 +3,7 @@
     <img class="item__cover" height="60" width="40" alt="item" :src="cover" />
     <div class="item__content">
       <div class="item__title">
-        <div class="two-lines-ellipsis">{{ title }}</div>
+        <TwoLineText :value="title" />
       </div>
       <FontAwesomeIcon
         class="item__remove-icon"
@@ -33,6 +33,7 @@
 
 <script>
 import { formatThaiBath } from '../utils.js';
+import TwoLineText from './TwoLineText';
 
 export default {
   name: 'BillingItem',
@@ -57,6 +58,9 @@ export default {
       type: String,
       required: true
     }
+  },
+  components: {
+    TwoLineText
   },
   computed: {
     formattedPrice() {

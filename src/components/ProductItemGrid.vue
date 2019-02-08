@@ -6,7 +6,7 @@
     >
       <img height="240" width="160" alt="product-item" :src="cover" />
       <div class="product-item__details">
-        <p class="product-item__title two-lines-ellipsis">{{ title }}</p>
+        <p class="product-item__title">{{ title }}</p>
         <p class="product-item__price">{{ formattedPrice }}</p>
       </div>
     </div>
@@ -15,7 +15,6 @@
 
 <script>
 import { formatThaiBath } from '../utils.js';
-
 export default {
   name: 'ProductItem',
   props: {
@@ -126,6 +125,7 @@ $fiveItemsWidth: (100% / 5);
         padding-top: 7px;
         position: absolute;
         bottom: 0px;
+        background-color: white;
       }
     }
   }

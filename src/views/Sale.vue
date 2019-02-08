@@ -158,11 +158,11 @@ $productListHeight: calc(100% - #{$searchBarHeight});
   .sale__product-section {
     height: 100%;
     width: 100%;
+    position: absolute;
 
     /* Show transition only on small devices */
     @include breakpoint(smallDevices) {
       /* We move it away 110%. 100% is not enough because there are paddings in <main></main> */
-      position: absolute;
       left: -110%;
       transition: left 0.2s ease-in;
 
@@ -172,6 +172,7 @@ $productListHeight: calc(100% - #{$searchBarHeight});
     }
 
     @include breakpoint(mediumDevices) {
+      position: relative;
       flex-grow: 1;
       margin-right: 10px;
     }

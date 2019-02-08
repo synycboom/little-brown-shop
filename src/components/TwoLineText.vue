@@ -1,7 +1,26 @@
+<template>
+  <div class="two-line-text">{{ value }}</div>
+</template>
+
+<script>
+export default {
+  name: 'TwoLineText',
+  props: {
+    value: {
+      type: String,
+      default() {
+        return '';
+      }
+    }
+  }
+};
+</script>
+
+<style lang="scss" scoped>
 // styles below is suggested by https://codepen.io/natonischuk/pen/KpNKQZ
 // to workaround text overflow ellipsis on 2 lines
 
-.two-lines-ellipsis {
+.two-line-text {
   max-width: 100%;
   /* hide text if it more than N lines  */
   overflow: hidden;
@@ -19,7 +38,7 @@
   padding-right: 1em;
 }
 
-.two-lines-ellipsis:before {
+.two-line-text:before {
   /* points in the end */
   content: '...';
   /* absolute position */
@@ -29,7 +48,7 @@
   bottom: 0;
 }
 
-.two-lines-ellipsis:after {
+.two-line-text:after {
   /* points in the end */
   content: '';
   /* absolute position */
@@ -42,3 +61,4 @@
   margin-top: 0.2em;
   background: white;
 }
+</style>
