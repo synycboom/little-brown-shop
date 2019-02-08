@@ -4,6 +4,10 @@
 
 ###### Github: https://github.com/synycboom/little-brown-shop
 
+### Caveat
+
+1. In the website you can see that it has a barcode search box which can be used with a barcode scanner, but the provided api doesn't has a barcode field, so you have to use 'ID' of the book instead of a barcode.
+
 ### Project setup for local development
 
 This project requires nodejs and yarn, so please install them first then install dependencies using this command.
