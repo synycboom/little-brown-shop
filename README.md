@@ -2,6 +2,8 @@
 
 ###### Demo: https://test.synycboom.com
 
+###### Demo (Backup): https://little-brown-shop.netlify.com
+
 ###### Github: https://github.com/synycboom/little-brown-shop
 
 ### Caveat
