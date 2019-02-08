@@ -17,7 +17,11 @@
       </div>
       <div class="cash-payment__pay">
         <h4>Pay</h4>
-        <PayTextBox :value="pay" @input="updatePay" />
+        <PayTextBox
+          :value="pay"
+          @input="updatePay"
+          class="cash-payment__text-box"
+        />
       </div>
     </div>
 
@@ -109,6 +113,11 @@ $footerHeight: 150px;
       align-items: center;
       justify-content: space-between;
       padding: 0px 1rem;
+      background-color: $secondaryLightColor;
+
+      .cash-payment__text-box {
+        width: 60%;
+      }
     }
   }
 

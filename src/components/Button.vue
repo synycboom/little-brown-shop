@@ -1,6 +1,6 @@
 <template>
   <button class="button" :class="buttonClasses" @click="$emit('click')">
-    <FontAwesomeIcon v-if="icon" size="lg" :icon="icon" class="button__icon"/>
+    <FontAwesomeIcon v-if="icon" size="lg" :icon="icon" class="button__icon" />
     <span class="button__label">{{ label }}</span>
   </button>
 </template>
@@ -42,32 +42,32 @@ export default {
   padding: 10px;
   border-radius: 5px;
 
-  &:disabled {
-    border: 1px solid #4444440d;
-    background-color: #4444440d;
+  &:focus {
+    outline: 0px;
+  }
+
+  &.button--primary:not(:disabled) {
+    .button__label {
+      color: $primaryColor;
+    }
   }
 
   &.button--primary:hover:not(:disabled) {
     background-image: $primatyGradientImage;
+
+    .button__label {
+      color: white;
+    }
   }
 
   &.button--primary:active:not(:disabled) {
-    // background-image: linear-gradient(
-    //   to right top,
-    //   #00b900,
-    //   #22bf00,
-    //   #34c500,
-    //   #42cb00,
-    //   #4fd100
-    // );
-    background-image: linear-gradient(
-      to right top,
-      #03be03,
-      #24c302,
-      #35c801,
-      #43cc01,
-      #4fd100
-    );
+    background-image: $primaryLightGradientImage;
+  }
+
+  &.button--secondary {
+    .button__label {
+      color: $secondaryColor;
+    }
   }
 
   &.button--secondary:not(:disabled) {
@@ -77,7 +77,7 @@ export default {
   &.button--secondary:hover:not(:disabled) {
     background-image: $secondaryGradientImage;
 
-    span {
+    .button__label {
       color: white;
     }
   }
@@ -86,11 +86,13 @@ export default {
     background-image: $secondaryLightGradientImage;
   }
 
-  .button__icon {
-    margin-right: 5px;
+  &:disabled {
+    border: 1px solid $secondaryLighterColor;
+    background-color: $secondaryLighterColor;
   }
 
-  .button__label {
+  .button__icon {
+    margin-right: 5px;
   }
 }
 </style>

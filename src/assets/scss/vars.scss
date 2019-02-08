@@ -1,6 +1,9 @@
 $primaryColor: #00b900;
 $primaryLightColor: #06d106a3;
 $secondaryColor: #444444;
+$secondaryLightColor: rgba(128, 128, 128, 0.2);
+$secondaryLighterColor: rgba(68, 68, 68, 0.05);
+
 // Use with background-image
 $primatyGradientImage: linear-gradient(
   to left,
@@ -11,12 +14,12 @@ $primatyGradientImage: linear-gradient(
   #71b900
 );
 $primaryLightGradientImage: linear-gradient(
-  to left bottom,
-  #01c201,
-  #24c600,
-  #36cb00,
-  #44cf00,
-  #50d300
+  to right top,
+  #03be03,
+  #24c302,
+  #35c801,
+  #43cc01,
+  #4fd100
 );
 $secondaryGradientImage: linear-gradient(
   to left bottom,
@@ -71,20 +74,30 @@ EFFECT MIXINS
 *********************/
 @mixin iconEffect {
   & > path:hover {
-    color: #0e6f03;
+    color: $primaryColor;
   }
 
   & > path:active {
-    color: $primaryColor;
+    color: $primaryLightColor;
   }
 }
 
 @mixin textEffect {
   &:hover {
-    color: #0e6f03;
+    color: $primaryColor;
   }
 
   &:active {
-    color: $primaryColor;
+    color: $primaryLightColor;
+  }
+}
+
+/***************************
+MIXINS FOR REMOVING OUTLINE 
+***************************/
+
+@mixin removeOutline {
+  &:focus {
+    outline: 0px;
   }
 }

@@ -39,7 +39,8 @@ export default {
   left: -100%;
   z-index: $drawerZIndex;
   padding-top: $navbarHeight;
-  box-shadow: 7px 0px 30px -2px rgba(0, 0, 0, 0.41);
+  box-shadow: 7px 0px 25px -2px rgba(0, 0, 0, 0.1);
+  transition: left 0.25s;
 
   &.drawer-active {
     left: 0px;

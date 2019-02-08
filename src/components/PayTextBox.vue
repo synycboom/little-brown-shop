@@ -74,6 +74,7 @@ export default {
 
   &:focus {
     box-shadow: $primaryColor 0px 0px 3px 0px;
+    outline: 0px;
   }
 }
 </style>

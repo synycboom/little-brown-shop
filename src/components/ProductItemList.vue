@@ -47,15 +47,7 @@ export default {
   display: flex;
 
   &:nth-of-type(even) {
-    background-color: #80808036;
-  }
-
-  &:hover {
-    background-color: $primaryLightColor;
-  }
-
-  &:active {
-    background-color: $primaryColor;
+    background-color: $secondaryLightColor;
   }
 
   .product-item__title {

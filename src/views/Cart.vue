@@ -21,16 +21,16 @@
     <div class="cart__footer">
       <div class="cart__summary">
         <div class="cart__subtotal">
-          <span class="cart__subtotal-label">Subtotal</span>
-          <span class="cart__subtotal-number">{{ formattedSubTotal }}</span>
+          <span>Subtotal</span>
+          <span>{{ formattedSubTotal }}</span>
         </div>
         <div class="cart__discount">
-          <span class="cart__discount-label">Discount</span>
-          <span class="cart__discount-number">{{ formattedDiscount }}</span>
+          <span>Discount</span>
+          <span>{{ formattedDiscount }}</span>
         </div>
         <div class="cart__total">
-          <span class="cart__total-label">Total</span>
-          <span class="cart__total-number">{{ formattedTotal }}</span>
+          <span>Total</span>
+          <span>{{ formattedTotal }}</span>
         </div>
       </div>
       <div class="cart__buttons">
@@ -143,36 +143,22 @@ $footerHeight: 150px;
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid $primaryColor;
-
-        .cart__subtotal-label {
-        }
-        .cart__subtotal-number {
-        }
       }
 
       .cart__discount {
         display: flex;
         justify-content: space-between;
-        margin-top: 5px;
+        margin-top: 10px;
         font-size: 1.25rem;
         border-bottom: 1px solid $primaryColor;
-
-        .cart__discount-label {
-        }
-        .cart__discount-number {
-        }
       }
 
       .cart__total {
         display: flex;
         justify-content: space-between;
-        margin: 7px 0px;
+        padding-top: 10px;
+        padding-bottom: 10px;
         font-size: 1.5rem;
-
-        .cart__total-label {
-        }
-        .cart__total-number {
-        }
       }
     }
 

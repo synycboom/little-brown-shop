@@ -5,11 +5,10 @@
       <FontAwesomeIcon
         icon="shopping-cart"
         size="lg"
+        class="navbar__shopping-cart-icon"
         @click="handleCartClick"
       />
-      <span class="navbar__total-items">
-        {{ formattedTotalProductsInCart }}
-      </span>
+      <span class="navbar__total-items">{{ formattedTotalProductsInCart }}</span>
     </div>
   </nav>
 </template>
@@ -50,7 +49,7 @@ export default {
   height: $navbarHeight;
   background-color: white;
   z-index: $navBarZIndex;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 28px 0px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 10px 0px;
 
   .navbar__brand {
     margin-left: 10px;
@@ -62,6 +61,10 @@ export default {
 
     @include breakpoint(mediumDevices) {
       display: none;
+    }
+
+    .navbar__shopping-cart-icon {
+      @include iconEffect;
     }
 
     .navbar__total-items {

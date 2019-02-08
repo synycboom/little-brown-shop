@@ -156,22 +156,24 @@ $productListHeight: calc(100% - #{$searchBarHeight});
   }
 
   .sale__product-section {
-    position: absolute;
     height: 100%;
     width: 100%;
-    /* We move it away 110%. 100% is not enough because there are paddings in <main></main> */
-    left: -110%;
 
-    @include breakpoint(mediumDevices) {
-      position: relative;
-      display: block;
-      flex-grow: 1;
-      margin-right: 10px;
-      left: 0%;
+    /* Show transition only on small devices */
+    @include breakpoint(smallDevices) {
+      /* We move it away 110%. 100% is not enough because there are paddings in <main></main> */
+      position: absolute;
+      left: -110%;
+      transition: left 0.2s ease-in;
+
+      &.sale__product-section--active {
+        left: 0%;
+      }
     }
 
-    &.sale__product-section--active {
-      left: 0%;
+    @include breakpoint(mediumDevices) {
+      flex-grow: 1;
+      margin-right: 10px;
     }
 
     .sale__search-bar {
@@ -197,23 +199,25 @@ $productListHeight: calc(100% - #{$searchBarHeight});
   }
 
   .sale__cart-section {
-    position: absolute;
     height: 100%;
     width: 100%;
-    /* We move it away roughly 110%. 100% is not enough because there are paddings in <main></main> */
-    right: 110%;
+
+    /* Show transition only on small devices */
+    @include breakpoint(smallDevices) {
+      /* We move it away roughly 110%. 100% is not enough because there are paddings in <main></main> */
+      position: absolute;
+      right: -110%;
+      transition: right 0.2s ease-in;
+
+      &.sale__cart-section--active {
+        right: 0%;
+      }
+    }
 
     @include breakpoint(mediumDevices) {
-      position: relative;
-      display: block;
       max-width: 570px;
       min-width: 375px;
       flex-grow: 1;
-      right: 0%;
-    }
-
-    &.sale__cart-section--active {
-      right: 0%;
     }
   }
 }

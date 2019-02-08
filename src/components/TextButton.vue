@@ -34,8 +34,27 @@ export default {
     margin-right: 5px;
   }
 
-  .button__label {
-    @include textEffect;
+  &:focus {
+    outline: 0px;
+  }
+
+  &:hover > {
+    .button__icon > path {
+      color: $primaryColor;
+    }
+
+    .button__label {
+      @include textEffect;
+    }
+  }
+
+  &:active {
+    .button__icon > path {
+      color: $primaryLightColor;
+    }
+    .button__label {
+      @include textEffect;
+    }
   }
 }
 </style>

@@ -37,6 +37,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/scss/vars.scss';
+
 // This code comes from https://vuejs.org/v2/examples/modal.html
 .modal {
   position: fixed;
@@ -72,6 +74,8 @@ export default {
         font-weight: bold;
         font-size: 3rem;
         cursor: pointer;
+
+        @include textEffect;
       }
 
       .modal__header h3 {

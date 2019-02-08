@@ -4,13 +4,7 @@
       class="product-item__content"
       @click="$store.commit({ type: 'addToCart', id })"
     >
-      <img
-        class="product-item__cover"
-        height="240"
-        width="160"
-        alt="product-item"
-        :src="cover"
-      />
+      <img height="240" width="160" alt="product-item" :src="cover" />
       <div class="product-item__details">
         <p class="product-item__title two-lines-ellipsis">{{ title }}</p>
         <p class="product-item__price">{{ formattedPrice }}</p>
@@ -98,7 +92,7 @@ $fiveItemsWidth: (100% / 5);
     width: 161px;
     margin: 0px auto;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 20px 0px;
-    border-radius: 9px;
+    border-radius: 5px;
     overflow: hidden;
     top: 0px;
     position: relative;
@@ -112,9 +106,6 @@ $fiveItemsWidth: (100% / 5);
     &:active {
       top: 7px;
       box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 20px 0px;
-    }
-
-    .product-item__cover {
     }
 
     .product-item__details {

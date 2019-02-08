@@ -1,17 +1,11 @@
 <template>
   <div class="view-type">
-    <FontAwesomeIcon
-      icon="th"
-      class="view-type__grid"
-      :class="gridClasses"
-      @click="$emit('change', 'GRID')"
-    />
-    <FontAwesomeIcon
-      icon="list"
-      class="view-type__list"
-      :class="listClasses"
-      @click="$emit('change', 'LIST')"
-    />
+    <div class="view-type__grid" :class="gridClasses">
+      <FontAwesomeIcon icon="th" @click="$emit('change', 'GRID')"/>
+    </div>
+    <div class="view-type__list" :class="listClasses">
+      <FontAwesomeIcon icon="list" @click="$emit('change', 'LIST')"/>
+    </div>
   </div>
 </template>
 
@@ -55,9 +49,15 @@ export default {
   cursor: pointer;
 
   .view-type__grid {
-    padding: 8px;
-    height: inherit;
+    height: 100%;
     width: 50%;
+    display: inline-block;
+
+    & > svg {
+      width: 100%;
+      height: 100%;
+      padding: 5px;
+    }
 
     &.view-type__grid--active {
       background-color: $primaryColor;
@@ -66,9 +66,15 @@ export default {
   }
 
   .view-type__list {
-    padding: 8px;
-    height: inherit;
+    height: 100%;
     width: 50%;
+    display: inline-block;
+
+    & > svg {
+      width: 100%;
+      height: 100%;
+      padding: 5px;
+    }
 
     &.view-type__list--active {
       background-color: $primaryColor;
