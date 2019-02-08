@@ -23,6 +23,23 @@
           class="cash-payment__text-box"
         />
       </div>
+      <div class="cash-payment__cash-group">
+        <button class="cash-payment__money" @click="addMoney(1)">+฿1</button>
+        <button class="cash-payment__money" @click="addMoney(2)">+฿2</button>
+        <button class="cash-payment__money" @click="addMoney(5)">+฿5</button>
+        <button class="cash-payment__money" @click="addMoney(10)">+฿10</button>
+        <button class="cash-payment__money" @click="addMoney(20)">+฿20</button>
+        <button class="cash-payment__money" @click="addMoney(50)">+฿50</button>
+        <button class="cash-payment__money" @click="addMoney(100)">
+          +฿100
+        </button>
+        <button class="cash-payment__money" @click="addMoney(500)">
+          +฿500
+        </button>
+        <button class="cash-payment__money" @click="addMoney(1000)">
+          +฿1,000
+        </button>
+      </div>
     </div>
 
     <div class="cash-payment__footer">
@@ -71,6 +88,12 @@ export default {
     ])
   },
   methods: {
+    addMoney(money) {
+      // Limit pay at ฿1,000,000
+      if (this.pay + money <= 1000000) {
+        this.$store.commit('updatePay', { pay: this.pay + money });
+      }
+    },
     updatePay(pay) {
       this.$store.commit('updatePay', { pay });
     },
@@ -97,6 +120,7 @@ $footerHeight: 150px;
 
   .cash-payment__content {
     height: calc(100% - #{$headerHeight + $footerHeight});
+    overflow: hidden;
 
     .cash-payment__total {
       height: 3rem;
@@ -117,6 +141,39 @@ $footerHeight: 150px;
 
       .cash-payment__text-box {
         width: 60%;
+      }
+    }
+
+    .cash-payment__cash-group {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+
+      .cash-payment__money {
+        cursor: pointer;
+        text-transform: uppercase;
+        border: 1px solid $primaryColor;
+        background-color: transparent;
+        position: relative;
+        padding: 10px;
+        border-radius: 5px;
+        width: calc(100% / 3);
+
+        &:focus {
+          outline: 0px;
+        }
+
+        &:hover {
+          background-color: $primaryLightColor;
+
+          .button__label {
+            color: white;
+          }
+        }
+
+        &:active {
+          background-color: $primaryColor;
+        }
       }
     }
   }
