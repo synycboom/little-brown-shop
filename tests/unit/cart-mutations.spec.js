@@ -7,7 +7,7 @@ Vue.notify = jest.fn(x => null);
 // Mock commit method
 mutations.commit = jest.fn((type, payload) => null);
 
-describe('product mutations', () => {
+describe('cart mutations', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
