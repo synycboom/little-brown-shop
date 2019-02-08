@@ -1,6 +1,6 @@
 <template>
   <div class="loading" :class="loadingClasses">
-    <FontAwesomeIcon icon="circle-notch" spin class="loading__icon"/>
+    <FontAwesomeIcon icon="circle-notch" spin class="loading__icon" />
   </div>
 </template>
 

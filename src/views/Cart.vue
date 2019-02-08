@@ -15,7 +15,7 @@
     </Header>
 
     <div class="cart__content">
-      <BillingList :items="billingItems"/>
+      <BillingList :items="billingItems" />
     </div>
 
     <div class="cart__footer">

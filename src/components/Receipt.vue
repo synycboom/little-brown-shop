@@ -2,10 +2,10 @@
   <div class="receipt">
     <h1 class="receipt__brand">LITTLE BROWN SHOP</h1>
     <p>{{ formattedDate }}</p>
-    <hr class="receipt__divider">
+    <hr class="receipt__divider" />
     <h2 class="receipt__header">*** RECEIPT ***</h2>
-    <hr class="receipt__divider">
-    <br>
+    <hr class="receipt__divider" />
+    <br />
     <div class="receipt__item" v-for="item in items" :key="item.id">
       <div class="receipt__item-left">
         <div class="receipt__title">{{ item.title }}</div>
@@ -13,7 +13,7 @@
       </div>
       <div class="receipt__item-right">{{ item.total }}</div>
     </div>
-    <hr class="receipt__divider">
+    <hr class="receipt__divider" />
     <div class="receipt__line">
       <p class="receipt__line-label">Subtotal</p>
       <p class="receipt__line-number">{{ subTotal }}</p>
@@ -22,7 +22,7 @@
       <p class="receipt__line-label">Discount</p>
       <p class="receipt__line-number">{{ discount }}</p>
     </div>
-    <hr class="receipt__divider">
+    <hr class="receipt__divider" />
     <div class="receipt__line">
       <h3 class="receipt__line-label">Total</h3>
       <h3 class="receipt__line-number">{{ total }}</h3>
@@ -35,7 +35,7 @@
       <p class="receipt__line-label">Change</p>
       <p class="receipt__line-number">{{ change }}</p>
     </div>
-    <hr class="receipt__divider">
+    <hr class="receipt__divider" />
     <h3>Thank You</h3>
   </div>
 </template>

@@ -6,7 +6,7 @@
     @blur="isInputActive = false"
     @focus="isInputActive = true"
     @click="selectAll"
-  >
+  />
 </template>
 
 <script>
@@ -49,6 +49,7 @@ export default {
       },
       set(modifiedValue) {
         // Recalculate value after ignoring "฿" and "," in user input
+        // eslint-disable-next-line no-useless-escape
         let newValue = parseFloat(modifiedValue.replace(/[^\d\.]/g, ''));
         // Ensure that it is not NaN
         if (isNaN(newValue)) {

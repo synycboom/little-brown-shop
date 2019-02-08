@@ -287,7 +287,7 @@ export const actions = {
 
     commit('fetchProductsSuccess', { products });
   },
-  async getProductByBarcode({ state, commit }, barcode) {
+  async getProductByBarcode({ commit }, barcode) {
     let product = null;
 
     // Show loading

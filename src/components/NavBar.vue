@@ -8,7 +8,9 @@
         class="navbar__shopping-cart-icon"
         @click="handleCartClick"
       />
-      <span class="navbar__total-items">{{ formattedTotalProductsInCart }}</span>
+      <span class="navbar__total-items">{{
+        formattedTotalProductsInCart
+      }}</span>
     </div>
   </nav>
 </template>

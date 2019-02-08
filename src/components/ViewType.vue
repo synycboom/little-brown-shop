@@ -1,10 +1,10 @@
 <template>
   <div class="view-type">
     <div class="view-type__grid" :class="gridClasses">
-      <FontAwesomeIcon icon="th" @click="$emit('change', 'GRID')"/>
+      <FontAwesomeIcon icon="th" @click="$emit('change', 'GRID')" />
     </div>
     <div class="view-type__list" :class="listClasses">
-      <FontAwesomeIcon icon="list" @click="$emit('change', 'LIST')"/>
+      <FontAwesomeIcon icon="list" @click="$emit('change', 'LIST')" />
     </div>
   </div>
 </template>

@@ -1,14 +1,29 @@
 <template>
   <div id="app">
-    <FontAwesomeIcon size="lg" class="toggle-button" :icon="toggleIcon" @click="toggleDrawer"/>
-    <notifications position="top center" classes="vue-notification"/>
-    <NavBar :isDrawerOpen="isDrawerOpen" @toggleDrawer="toggleDrawer"/>
+    <FontAwesomeIcon
+      size="lg"
+      class="toggle-button"
+      :icon="toggleIcon"
+      @click="toggleDrawer"
+    />
+    <notifications position="top center" classes="vue-notification" />
+    <NavBar :isDrawerOpen="isDrawerOpen" @toggleDrawer="toggleDrawer" />
     <Drawer :isDrawerOpen="isDrawerOpen">
-      <DrawerItem title="Sale" :linkTo="{ name: 'sale' }" icon="dollar-sign" replace/>
-      <DrawerItem title="History" :linkTo="{ name: 'history' }" icon="file-invoice-dollar" replace/>
+      <DrawerItem
+        title="Sale"
+        :linkTo="{ name: 'sale' }"
+        icon="dollar-sign"
+        replace
+      />
+      <DrawerItem
+        title="History"
+        :linkTo="{ name: 'history' }"
+        icon="file-invoice-dollar"
+        replace
+      />
     </Drawer>
     <main>
-      <router-view class="main"/>
+      <router-view class="main" />
     </main>
   </div>
 </template>
