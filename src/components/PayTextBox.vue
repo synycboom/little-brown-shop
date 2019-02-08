@@ -2,11 +2,12 @@
   <input
     type="text"
     class="pay-text-box"
+    maxlength="10"
     v-model="displayValue"
     @blur="isInputActive = false"
     @focus="isInputActive = true"
     @click="selectAll"
-  />
+  >
 </template>
 
 <script>
