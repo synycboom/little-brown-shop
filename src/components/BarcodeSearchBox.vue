@@ -29,7 +29,7 @@ export default {
     placeholder: {
       type: String,
       default() {
-        return 'Enter a barcode (use ID)';
+        return 'Enter a barcode (Book ID)';
       }
     }
   },

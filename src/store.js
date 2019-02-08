@@ -176,11 +176,13 @@ export const mutations = {
   },
   addToCart(state, { id }) {
     if (this.getters.isInCart(id)) {
-      Vue.notify({
-        title: this.getters.normalizedProducts[id].title,
-        text: 'This book is already in cart.',
-        type: 'info'
-      });
+      // It should increase the quantity of this product
+      // Vue.notify({
+      //   title: this.getters.normalizedProducts[id].title,
+      //   text: 'This book is already in cart.',
+      //   type: 'info'
+      // });
+      this.commit('increaseQuantity', { id });
       return;
     }
 
@@ -215,7 +217,8 @@ export const mutations = {
   decreaseQuantity(state, { id }) {
     if (this.getters.isInCart(id)) {
       if (state.selectedProductCount[id] - 1 === 0) {
-        this.commit('removeFromCart', { id });
+        // It should do nothing
+        // this.commit('removeFromCart', { id });
       } else {
         Vue.set(
           state.selectedProductCount,
